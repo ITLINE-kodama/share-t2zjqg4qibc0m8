@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>公共AIナレッジベースとは｜公共AIナレッジ研究会（パターン4）</title>
+<meta name="description" content="公共AIナレッジベースの考え方。人間とAIの合意事項（Agreement）、4階層の分類、ID・版管理、ガバナンスを図解で説明します。">
+<link rel="icon" href="assets/mark.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=BIZ+UDPGothic:wght@400;700&amp;family=Noto+Sans+JP:wght@400;500;600;700&amp;family=Roboto+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+<link rel="stylesheet" href="assets/pattern3.css?v=20260806-2">
+<link rel="stylesheet" href="assets/pattern4.css?v=20260806-6">
+<link rel="stylesheet" href="assets/mega-menu.css?v=20260806-3">
+<noscript><style>.rv{opacity:1;transform:none}</style></noscript>
+</head>
+<body>
+<a class="skip" href="#main">本文へスキップ</a>
+<header class="site-head">
+  <div class="head-in">
+    <a class="brand" href="index.html" aria-label="公共AIナレッジ研究会 ホーム">
+      <img class="brand-logo" src="assets/logo.svg" alt="公共AIナレッジ研究会 PUBLIC AI KNOWLEDGE CONSORTIUM">
+    </a>
+    <nav class="gnav" id="gnav" aria-label="グローバルナビゲーション">
+      <ul class="gnav-root">
+        <li class="has-mega">
+          <a class="gnav-top" href="about.html">研究会について</a>
+          <button class="mega-toggle" type="button" aria-expanded="false" aria-controls="mega-about" aria-label="研究会についてのメニューを開く">＋</button>
+          <div class="mega-menu" id="mega-about">
+            <div class="mega-inner">
+              <div class="mega-summary"><small>ABOUT</small><strong>公共AIナレッジ研究会</strong><p>設立の目的、運営体制、参加者、規約をご案内します。</p></div>
+              <ul class="mega-links">
+                <li><a href="about.html">設立の趣旨・概要<small>目指す社会と研究テーマ</small></a></li>
+                <li><a href="members.html">体制・会員リスト<small>役員、会員、事務局</small></a></li>
+                <li><a href="rules.html">研究会規約<small>目的、会員、運営ルール</small></a></li>
+              </ul>
+            </div>
+          </div>
+        </li>
+        <li class="gnav-direct"><a class="gnav-top" href="knowledge-base.html" aria-current="page">ナレッジベースとは</a></li>
+        <li class="gnav-direct"><a class="gnav-top" href="spec.html">仕様書・成果物</a></li>
+        <li class="gnav-direct"><a class="gnav-top" href="activity.html">活動・ロードマップ</a></li>
+        <li class="gnav-direct"><a class="gnav-top" href="poc.html">実証事業</a></li>
+        <li class="gnav-direct"><a class="gnav-top" href="news.html">お知らせ</a></li>
+      </ul>
+    </nav>
+    <a class="btn-join" href="join.html">参加する</a>
+    <button class="menu-btn" type="button" aria-expanded="false" aria-controls="gnav">メニュー</button>
+  </div>
+</header>
+<main id="main">
+<div class="wrap">
+  <nav class="crumb" aria-label="現在位置">
+    <ol><li><a href="index.html">HOME</a></li><li aria-current="page">KNOWLEDGE BASE</li></ol>
+  </nav>
+</div>
+<div class="wrap page-hero">
+  <div class="ph-art" aria-hidden="true"><img src="assets/hero-f-layers.jpg" alt="" loading="lazy"></div>
+  <p class="ph-edition" aria-hidden="true"><span>PUBLIC AI KNOWLEDGE CONSORTIUM</span><i>—</i><span>RESEARCH NOTE / 005</span></p>
+  <p class="kicker">WHAT IS PUBLIC AI KNOWLEDGE BASE</p>
+  <h1>公共AIナレッジベースとは</h1>
+  <p class="lead">単にファイルを格納するストレージではありません。AIが「正しい作業」を行い、必要な情報を「確実に検索・提供」できるようにするための、人間とAIの共有財産（データエコシステム）です。</p>
+  <nav class="ph-index" aria-label="このページの内容"><span class="ph-index-label">CONTENTS</span><a href="#sec-01"><span>01</span>設計の核心</a><a href="#sec-02"><span>02</span>全体活用イメージ</a><a href="#taxonomy"><span>03</span>4階層</a><a href="#sec-04"><span>04</span>ID・版管理</a><a href="#sec-05"><span>05</span>役割とライフサイクル</a></nav>
+</div>
+
+<section class="section no-rule" id="sec-01">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <p class="kicker">01 — CONCEPT</p>
+      <h2>設計の核心は「人間とAIの合意事項（Agreement）」</h2>
+      <p class="lead">人間が暗黙的に理解している「文書の趣旨」や「公開制限」といったナレッジのプロファイルを、カテゴリ分けおよびメタデータとして、AIが理解できるように可視化します。これにより、人間とAIの間でナレッジの扱いに関する明確な合意事項を形成し、RAG（検索拡張生成：AIが外部の知識を検索して回答する仕組み）を通じた生成AIによる正確な案内、AIエージェントによる正しい処理を実現します。</p>
+    </div>
+    <div class="note teal rv">
+      <p><strong>既存の文書を書き換えずに導入できます</strong> ― ナレッジ（ドキュメント）の内容そのものを標準化するのではなく、その「扱い方」に関する情報をメタデータとして見える化します。だからこそ、既存の文書を書き換えることなく導入できます。</p>
+    </div>
+    <div class="grid c3 rv mt40">
+      <div class="card"><p class="num">MEANS 1</p><h3>カテゴリ分類（構造化）</h3><p>ナレッジを「4階層＋細目」に分類し、いま参照している情報が統計データなのか、守るべきルールなのかをAIに明確に伝えます。</p></div>
+      <div class="card"><p class="num">MEANS 2</p><h3>メタデータの付与</h3><p>識別子、対象者、有効期間、公開範囲など、本体に書かれていない暗黙知を付随情報として追加します。</p></div>
+      <div class="card"><p class="num">MEANS 3</p><h3>検索の効率化と提供</h3><p>AIのリクエストや権限に応じて必要なナレッジを迅速に検索・提供し、AIの処理速度を高め負担を軽減します。</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="section wash" id="sec-02">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <p class="kicker">02 — OVERVIEW</p>
+      <h2>全体活用イメージ</h2>
+      <p class="lead">国・県・自治体が「正しい・最新・正統な」ナレッジを登録・更新し、MCP（AIと外部データをつなぐ接続方式）やRAGを通じて生成AIシステム、バックオフィスAIエージェント、ワークフローシステム、企業のAIへ提供します。</p>
+    </div>
+    <figure class="fig rv">
+      <div class="fig-scroll"><svg viewBox="0 0 980 470" role="img" aria-label="公共AIナレッジベースの全体活用イメージ図">
+          <defs>
+            <marker id="a2" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#1E3C90"/></marker>
+            <marker id="a3" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#C22A22"/></marker>
+          </defs>
+
+          <!-- left: providers -->
+          <text x="24" y="34" font-family="Roboto Mono, monospace" font-size="11" fill="#5F5B59" letter-spacing="2">PROVIDER</text>
+          <rect x="24" y="46" width="176" height="52" rx="3" fill="#fff" stroke="#DBD9D8"/><text x="112" y="77" font-size="14" fill="#221815" text-anchor="middle">国・府省庁</text>
+          <rect x="24" y="110" width="176" height="52" rx="3" fill="#fff" stroke="#DBD9D8"/><text x="112" y="141" font-size="14" fill="#221815" text-anchor="middle">都道府県</text>
+          <rect x="24" y="174" width="176" height="52" rx="3" fill="#fff" stroke="#DBD9D8"/><text x="112" y="205" font-size="14" fill="#221815" text-anchor="middle">市区町村</text>
+          <rect x="24" y="238" width="176" height="52" rx="3" fill="#fff" stroke="#DBD9D8"/><text x="112" y="269" font-size="14" fill="#221815" text-anchor="middle">民間企業・団体</text>
+          <text x="112" y="316" font-size="11.5" fill="#5F5B59" text-anchor="middle">登録・更新・廃止</text>
+
+          <path d="M204 72 L204 170 L268 170" fill="none" stroke="#1E3C90" stroke-width="1.6" marker-end="url(#a2)"/>
+          <path d="M204 136 L268 170" fill="none" stroke="#1E3C90" stroke-width="1.6" marker-end="url(#a2)"/>
+          <path d="M204 200 L268 172" fill="none" stroke="#1E3C90" stroke-width="1.6" marker-end="url(#a2)"/>
+          <path d="M204 264 L204 176 L268 174" fill="none" stroke="#1E3C90" stroke-width="1.6" marker-end="url(#a2)"/>
+
+          <!-- center: KB -->
+          <rect x="276" y="46" width="248" height="292" rx="5" fill="#1D1B1A"/>
+          <text x="400" y="80" font-size="16" fill="#fff" text-anchor="middle" font-family="BIZ UDPGothic, sans-serif">公共AIナレッジベース</text>
+          <text x="400" y="102" font-family="Roboto Mono, monospace" font-size="10" fill="#9FB1E0" text-anchor="middle" letter-spacing="2">SHARED DATA ECOSYSTEM</text>
+          <rect x="298" y="120" width="204" height="38" rx="3" fill="#383430"/><text x="400" y="144" font-size="13" fill="#E8E6E5" text-anchor="middle">ナレッジ本体（4階層）</text>
+          <rect x="298" y="166" width="204" height="38" rx="3" fill="#383430"/><text x="400" y="190" font-size="13" fill="#E8E6E5" text-anchor="middle">メタデータ 128項目</text>
+          <rect x="298" y="212" width="204" height="38" rx="3" fill="#383430"/><text x="400" y="236" font-size="13" fill="#E8E6E5" text-anchor="middle">カタログ（目録）</text>
+          <rect x="298" y="258" width="204" height="38" rx="3" fill="#1E3C90"/><text x="400" y="282" font-size="13" fill="#fff" text-anchor="middle">ID・版管理／ガバナンス</text>
+          <text x="400" y="322" font-size="11.5" fill="#A5A09D" text-anchor="middle">オーナー／ホルダー／システム管理組織</text>
+
+          <!-- connector -->
+          <path d="M528 170 L588 170" fill="none" stroke="#C22A22" stroke-width="1.8" marker-end="url(#a3)"/>
+          <rect x="556" y="150" width="66" height="40" rx="3" fill="#fff" stroke="#C22A22"/>
+          <text x="589" y="167" font-family="Roboto Mono, monospace" font-size="10.5" fill="#A6231C" text-anchor="middle">MCP</text>
+          <text x="589" y="182" font-family="Roboto Mono, monospace" font-size="10.5" fill="#A6231C" text-anchor="middle">RAG / API</text>
+          <path d="M626 170 L686 120" fill="none" stroke="#C22A22" stroke-width="1.6" marker-end="url(#a3)"/>
+          <path d="M626 170 L686 184" fill="none" stroke="#C22A22" stroke-width="1.6" marker-end="url(#a3)"/>
+          <path d="M626 178 L686 248" fill="none" stroke="#C22A22" stroke-width="1.6" marker-end="url(#a3)"/>
+
+          <!-- right: consumers -->
+          <text x="694" y="34" font-family="Roboto Mono, monospace" font-size="11" fill="#5F5B59" letter-spacing="2">CONSUMER</text>
+          <rect x="694" y="88" width="262" height="56" rx="3" fill="#fff" stroke="#DBD9D8"/>
+          <text x="712" y="112" font-size="13.5" fill="#221815">生成AIシステム（対話・案内）</text>
+          <text x="712" y="132" font-size="11.5" fill="#5F5B59">住民からの相談・手続き案内・申請受付</text>
+          <rect x="694" y="156" width="262" height="56" rx="3" fill="#fff" stroke="#DBD9D8"/>
+          <text x="712" y="180" font-size="13.5" fill="#221815">バックオフィスAIエージェント</text>
+          <text x="712" y="200" font-size="11.5" fill="#5F5B59">申請処理・チェック・審査支援の自動化</text>
+          <rect x="694" y="224" width="262" height="56" rx="3" fill="#fff" stroke="#DBD9D8"/>
+          <text x="712" y="248" font-size="13.5" fill="#221815">企業の生成AI／AIエージェント</text>
+          <text x="712" y="268" font-size="11.5" fill="#5F5B59">行政手続きの効率化・行政との連携強化</text>
+
+          <!-- effects -->
+          <rect x="24" y="360" width="932" height="88" rx="4" fill="#F5F5F4" stroke="#DBD9D8"/>
+          <text x="48" y="388" font-family="Roboto Mono, monospace" font-size="10.5" fill="#C22A22" letter-spacing="2">EFFECT</text>
+          <text x="48" y="414" font-size="13" fill="#221815">行政：定型業務の自動化、AIによる案内・相談・申請受付</text>
+          <text x="48" y="436" font-size="13" fill="#221815">企業：行政手続きの効率化、業務のスピードアップとコスト削減</text>
+          <text x="530" y="414" font-size="13" fill="#221815">住民：行政サービスの利用が簡単に、行政情報の信頼性向上</text>
+          <text x="530" y="436" font-size="13" fill="#221815">　　　地域サービスの充実、AIによるデジタル格差の解消</text>
+        </svg></div>
+      <figcaption><b>FIG. 02</b>公共AIナレッジベース 全体活用イメージ（企業・住民での活用を含む）</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section class="section" id="taxonomy">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <p class="kicker">03 — TAXONOMY</p>
+      <h2>ナレッジの4階層</h2>
+      <p class="lead">AIが「いま見ているのは統計データなのか、それとも守るべきルールなのか」を峻別できるようにし、誤った推論を防ぎます。</p>
+    </div>
+    <figure class="fig rv">
+      <div class="fig-scroll"><svg viewBox="0 0 980 350" role="img" aria-label="ナレッジの4階層構造を示した図">
+          <rect x="24" y="24" width="932" height="72" rx="3" fill="#fff" stroke="#DBD9D8"/>
+          <rect x="24" y="24" width="6" height="72" fill="#5F5B59"/>
+          <text x="52" y="52" font-size="15" fill="#221815" font-family="BIZ UDPGothic, sans-serif">データ層 / Data Layer</text>
+          <text x="52" y="76" font-size="12.5" fill="#5F5B59">文脈を持たない未加工の値・記号・観測結果　例）気温、売上、記入済み申請書、アンケート回答　→ DBからAPI経由でリアルタイム参照</text>
+
+          <rect x="24" y="104" width="932" height="72" rx="3" fill="#fff" stroke="#DBD9D8"/>
+          <rect x="24" y="104" width="6" height="72" fill="#1E3C90"/>
+          <text x="52" y="132" font-size="15" fill="#221815" font-family="BIZ UDPGothic, sans-serif">情報層 / Information Layer</text>
+          <text x="52" y="156" font-size="12.5" fill="#5F5B59">データに意味と文脈が付与されたもの　例）統計情報、ニュース、案内・告知、レポート、論文　→ RAGへの取り込み、回答根拠としての引用・要約</text>
+
+          <rect x="24" y="184" width="932" height="72" rx="3" fill="#fff" stroke="#C22A22" stroke-width="1.4"/>
+          <rect x="24" y="184" width="6" height="72" fill="#C22A22"/>
+          <text x="52" y="212" font-size="15" fill="#221815" font-family="BIZ UDPGothic, sans-serif">ルール・制約層 / Rule &amp; Policy Layer</text>
+          <text x="52" y="236" font-size="12.5" fill="#5F5B59">意思決定や再利用のために体系化された手順・基準　例）マニュアル、FAQ、様式（未記入）、計算式、判定基準、指針　→ AIエージェントの判断基準</text>
+
+          <rect x="24" y="264" width="932" height="72" rx="3" fill="#fff" stroke="#DBD9D8"/>
+          <rect x="24" y="264" width="6" height="72" fill="#1D1B1A"/>
+          <text x="52" y="292" font-size="15" fill="#221815" font-family="BIZ UDPGothic, sans-serif">常識・背景層 / Common Sense &amp; Background</text>
+          <text x="52" y="316" font-size="12.5" fill="#5F5B59">判断に影響する環境要因・分野固有の暗黙の前提　例）一般常識、業界専門用語、季節・天気、利用者の属性　→ 文脈理解のための背景情報</text>
+        </svg></div>
+      <figcaption><b>FIG. 03</b>ナレッジの4階層構造。この4層すべてを合わせたものが、システムが持つ「知の全体像」としてのナレッジです。</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section class="section" id="sec-04">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <p class="kicker">04 — IDENTIFICATION</p>
+      <h2>ID・版管理の考え方</h2>
+      <p class="lead">「どのナレッジの、いつの版を、どのメタデータで参照したか」をAIが説明できるようにするため、5つのIDを階層的に定義しています。</p>
+    </div>
+    <figure class="fig rv">
+      <div class="fig-scroll"><svg viewBox="0 0 980 300" role="img" aria-label="KID・KVer・CID・MVer・RIDの5階層ID体系を示した図">
+          <defs><marker id="a4" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#5F5B59"/></marker></defs>
+          <rect x="24" y="30" width="300" height="86" rx="4" fill="#1D1B1A"/>
+          <text x="44" y="58" font-family="Roboto Mono, monospace" font-size="12" fill="#9FB1E0" letter-spacing="2">KID</text>
+          <text x="44" y="82" font-size="14" fill="#fff">ナレッジID（不変）</text>
+          <text x="44" y="103" font-family="Roboto Mono, monospace" font-size="12.5" fill="#C8C5C3">KID-YYYYMMDD-NNNNNNNN</text>
+
+          <path d="M174 120 L174 148" stroke="#5F5B59" stroke-width="1.4" marker-end="url(#a4)"/>
+          <text x="186" y="142" font-size="11.5" fill="#5F5B59">初回登録後は変わらない</text>
+
+          <rect x="24" y="156" width="452" height="118" rx="4" fill="#fff" stroke="#DBD9D8"/>
+          <text x="44" y="182" font-family="Roboto Mono, monospace" font-size="11.5" fill="#1E3C90" letter-spacing="2">KVer → CID</text>
+          <text x="44" y="206" font-size="13.5" fill="#221815">内容の更新でKVerを繰り上げ</text>
+          <text x="44" y="228" font-size="12.5" fill="#5F5B59">改正・改訂などナレッジ本体が変わったとき。</text>
+          <text x="44" y="250" font-size="12.5" fill="#5F5B59">版ごとに CID（コンテンツID）を新規発行。</text>
+
+          <rect x="504" y="156" width="452" height="118" rx="4" fill="#fff" stroke="#DBD9D8"/>
+          <text x="524" y="182" font-family="Roboto Mono, monospace" font-size="11.5" fill="#C22A22" letter-spacing="2">MVer → RID</text>
+          <text x="524" y="206" font-size="13.5" fill="#221815">メタデータのみの更新でMVerを繰り上げ</text>
+          <text x="524" y="228" font-size="12.5" fill="#5F5B59">公開範囲や担当課の変更など、本体は変えず</text>
+          <text x="524" y="250" font-size="12.5" fill="#5F5B59">属性だけが変わったとき。RID を新規発行。</text>
+
+          <path d="M324 73 L504 73 L504 154" fill="none" stroke="#5F5B59" stroke-width="1.4" marker-end="url(#a4)"/>
+        </svg></div>
+      <figcaption><b>FIG. 04</b>KID／KVer／CID／MVer／RID の関係。KIDは初回登録後に変更しません。</figcaption>
+    </figure>
+
+    <h3 class="rv mt40">コード体系</h3>
+    <p class="lead rv">ナレッジに付与するコードは、出所と管理主体で3種類に分けています。</p>
+    <div class="tbl-wrap rv mt20">
+      <table>
+        <caption class="sr-only">コード体系の3区分（CC・PC・IC）の名称と定義</caption>
+        <thead><tr><th scope="col" style="width:90px">区分</th><th scope="col" style="width:220px">名称</th><th scope="col">定義</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">CC</th><td>コンソーシアムコード</td><td>本研究会が定義・管理するコード。共通仕様の一部として公開します。</td></tr>
+          <tr><th scope="row">PC</th><td>公共標準コード</td><td>国・国際機関等が定める既存の標準コード（ISO言語コード、国コード、全国地方公共団体コード等）を参照します。</td></tr>
+          <tr><th scope="row">IC</th><td>内部コード</td><td>各組織が内部管理のために独自に定義するコード。</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="note rv">
+      <p>カテゴリコード（L1〜L4）は現時点で<strong>案</strong>です。研究会での確認を経て確定します。</p>
+    </div>
+  </div>
+</section>
+
+<section class="section wash" id="sec-05">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <p class="kicker">05 — GOVERNANCE</p>
+      <h2>3者の役割とライフサイクル</h2>
+    </div>
+    <figure class="fig rv">
+      <div class="fig-scroll"><svg viewBox="0 0 980 250" role="img" aria-label="オーナー・ホルダー・システム管理組織の役割分担を示した図">
+          <rect x="24" y="30" width="296" height="170" rx="4" fill="#fff" stroke="#DBD9D8"/>
+          <rect x="24" y="30" width="296" height="6" fill="#1E3C90"/>
+          <text x="48" y="72" font-family="Roboto Mono, monospace" font-size="11" fill="#1E3C90" letter-spacing="2">OWNER</text>
+          <text x="48" y="100" font-size="16" fill="#221815" font-family="BIZ UDPGothic, sans-serif">オーナー</text>
+          <text x="48" y="128" font-size="12.5" fill="#5F5B59">ナレッジを作成・発信した組織。</text>
+          <text x="48" y="150" font-size="12.5" fill="#5F5B59">ナレッジの「内容」に対して</text>
+          <text x="48" y="172" font-size="12.5" fill="#5F5B59">責任を持つ。</text>
+
+          <rect x="342" y="30" width="296" height="170" rx="4" fill="#fff" stroke="#DBD9D8"/>
+          <rect x="342" y="30" width="296" height="6" fill="#C22A22"/>
+          <text x="366" y="72" font-family="Roboto Mono, monospace" font-size="11" fill="#C22A22" letter-spacing="2">HOLDER</text>
+          <text x="366" y="100" font-size="16" fill="#221815" font-family="BIZ UDPGothic, sans-serif">ホルダー</text>
+          <text x="366" y="128" font-size="12.5" fill="#5F5B59">ナレッジを登録した組織。</text>
+          <text x="366" y="150" font-size="12.5" fill="#5F5B59">「信頼性」とメタデータの</text>
+          <text x="366" y="172" font-size="12.5" fill="#5F5B59">正確性に責任を持つ。</text>
+
+          <rect x="660" y="30" width="296" height="170" rx="4" fill="#1D1B1A"/>
+          <text x="684" y="72" font-family="Roboto Mono, monospace" font-size="11" fill="#9FB1E0" letter-spacing="2">SYSTEM ADMIN</text>
+          <text x="684" y="100" font-size="16" fill="#fff" font-family="BIZ UDPGothic, sans-serif">システム管理組織</text>
+          <text x="684" y="128" font-size="12.5" fill="#C8C5C3">ナレッジベースとカタログを</text>
+          <text x="684" y="150" font-size="12.5" fill="#C8C5C3">運用し、ID採番・品質確認・</text>
+          <text x="684" y="172" font-size="12.5" fill="#C8C5C3">公開制御を担う。</text>
+        </svg></div>
+      <figcaption><b>FIG. 05</b>ガバナンスの3プレイヤー。オーナーとホルダーは同一でも構いません。</figcaption>
+    </figure>
+
+    <h3 class="rv mt40">ナレッジのライフサイクル（5段階）</h3>
+    <ol class="steps rv mt20">
+      <li><b>新規登録</b><p>ナレッジを登録し、KIDを採番します。カテゴリとメタデータを付与します。</p></li>
+      <li><b>内容更新</b><p>ナレッジ本体が変わったとき。KVerを繰り上げ、新しいCIDを発行します。</p></li>
+      <li><b>メタデータ更新</b><p>属性のみが変わったとき。MVerを繰り上げ、新しいRIDを発行します。</p></li>
+      <li><b>廃止</b><p>有効期間の終了や制度改正により参照させないようにします。履歴は残します。</p></li>
+      <li><b>定期メンテナンス</b><p>有効期間・リンク・所管の棚卸しを定期的に行い、鮮度を保ちます。</p></li>
+    </ol>
+  </div>
+</section>
+
+<section class="section band on-dark join-band no-rule">
+  <div class="grain" aria-hidden="true"></div>
+  <div class="wrap in">
+    <div class="rv" style="max-width:760px">
+      <p class="kicker">SPECIFICATION</p>
+      <h2>仕様書 Ver.1.0 のご案内</h2>
+      <p class="lead">本編と別紙3点（カテゴリの分類一覧・メタデータ項目一覧・コード仕様書）で構成されます。本サイトへの掲載は、研究会内での確認を経て公開予定です。</p>
+      <div class="hero-cta">
+        <a class="btn on-navy" href="spec.html">仕様書・成果物へ</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+<footer class="site-foot">
+  <div class="foot-in">
+    <div class="foot-brand">
+      <img class="footer-logo" src="assets/logo-white.svg" alt="公共AIナレッジ研究会 PUBLIC AI KNOWLEDGE CONSORTIUM">
+      <p>公共分野における、生成AI・AIエージェントのための公共ナレッジベース・カタログサービスの構築に向けた官民のコンソーシアム。</p>
+      <p><a href="mailto:info@trustedfor.ai">info@trustedfor.ai</a></p>
+    </div>
+    <nav aria-label="フッター 研究会">
+      <h4>研究会</h4>
+      <ul>
+        <li><a href="about.html">設立の趣旨</a></li>
+        <li><a href="members.html">体制・会員リスト</a></li>
+        <li><a href="rules.html">規約</a></li>
+        <li><a href="activity.html">活動・ロードマップ</a></li>
+      </ul>
+    </nav>
+    <nav aria-label="フッター ナレッジベース">
+      <h4>ナレッジベース</h4>
+      <ul>
+        <li><a href="knowledge-base.html">ナレッジベースとは</a></li>
+        <li><a href="knowledge-base.html#taxonomy">4階層とメタデータ</a></li>
+        <li><a href="spec.html">仕様書・成果物</a></li>
+        <li><a href="poc.html">実証事業</a></li>
+      </ul>
+    </nav>
+    <nav aria-label="フッター 参加・お問い合わせ">
+      <h4>参加・お問い合わせ</h4>
+      <ul>
+        <li><a href="join.html">参加のご案内</a></li>
+        <li><a href="contact.html">お問い合わせ</a></li>
+        <li><a href="news.html">お知らせ</a></li>
+      </ul>
+    </nav>
+    <nav aria-label="フッター サイトポリシー">
+      <h4>サイトポリシー</h4>
+      <ul>
+        <li><a href="terms.html">サイト利用規約・著作権の取扱い</a></li>
+        <li><a href="sitemap.html">サイトマップ</a></li>
+        <li><span class="foot-plain">プライバシーポリシー（策定準備中）</span></li>
+      </ul>
+    </nav>
+  </div>
+  <p class="foot-note">本ページは検索エンジンへの登録を抑制するnoindex設定の確認用モックアップです。パスワード等のアクセス制限はありませんので、URLのお取り扱いにご注意ください。</p>
+  <div class="copyright">
+    <div class="in">
+      <span>© 2026 PUBLIC AI KNOWLEDGE CONSORTIUM 公共AIナレッジ研究会</span>
+      <span>DESIGN PROTOTYPE / PATTERN 4 / INTEGRATED</span>
+    </div>
+  </div>
+</footer>
+<script src="assets/app.js?v=20260806-4"></script>
+<script src="assets/mega-menu.js?v=20260806-3"></script>
+</body>
+</html>

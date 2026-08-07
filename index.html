@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>公共AIナレッジ研究会 公式Webサイト｜ご確認用資料一覧（株式会社ITLINE）</title>
+<style>
+:root{
+  --blue:#003399; --blue-d:#00246E; --blue-dd:#001A52; --ink:#1F2633; --mute:#5B6577; --bord:#E3E7EE;
+  --mint:#6BE2DE; --mintbg:#EFFBF9; --mintbd:#BCEDE6; --mintdk:#1F8F84;
+  --amber:#96660A; --amberbg:#FFF6E5; --amberbd:#F2D9A6;
+  --card:#F7F9FB;
+  --grad:linear-gradient(90deg,#6BE2DE 0%,#6AECD4 55%,#79EDC0 100%);
+  --font:"Yu Gothic UI","YuGothic UI","Yu Gothic","Meiryo",system-ui,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--font);color:var(--ink);background:#F4F7FA;font-size:16px;line-height:1.85}
+img{max-width:100%}
+a{color:inherit}
+.wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+.gradbar{height:6px;background:var(--grad)}
+
+/* ---- top bar ---- */
+.tbar{background:#fff;border-bottom:1px solid var(--bord)}
+.tbar .wrap{display:flex;align-items:center;justify-content:space-between;gap:14px;padding-top:12px;padding-bottom:12px}
+.tbar img{height:34px;display:block}
+.tbar span{font-size:12px;color:var(--mute)}
+
+/* ---- hero ---- */
+.hero{color:#fff;background:linear-gradient(128deg,var(--blue) 0%,var(--blue-d) 55%,var(--blue-dd) 100%);position:relative;overflow:hidden}
+.hero::after{content:"";position:absolute;right:-140px;top:-140px;width:420px;height:420px;border-radius:50%;background:radial-gradient(circle,rgba(107,226,222,.18),transparent 70%)}
+.hero .wrap{position:relative;z-index:1;padding-top:52px;padding-bottom:52px}
+.kicker{font-size:12.5px;letter-spacing:.34em;font-weight:700;color:#9FD9FF;margin-bottom:18px}
+.hero h1{font-size:clamp(26px,4.2vw,40px);font-weight:700;line-height:1.5;letter-spacing:.01em}
+.hero .sub{margin-top:16px;font-size:14.5px;color:#D6E2F7}
+.chips{display:flex;flex-wrap:wrap;gap:12px;margin-top:26px}
+.chip{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.25);border-radius:999px;padding:8px 20px;font-size:13.5px;font-weight:700}
+.chip b{color:#8FF3E6;font-weight:700}
+
+/* ---- sections ---- */
+main{padding:46px 0 20px}
+.shead{display:flex;align-items:baseline;gap:14px;margin:0 0 20px}
+.shead h2{font-size:21px;font-weight:700;color:var(--ink)}
+.shead .en{font-size:11.5px;letter-spacing:.28em;font-weight:700;color:var(--blue)}
+.shead .cnt{margin-left:auto;font-size:12.5px;color:var(--mute)}
+.gap{height:44px}
+
+/* ---- pattern cards (thumbnail type) ---- */
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+.pcard{display:flex;flex-direction:column;background:#fff;border:1px solid var(--bord);border-radius:12px;overflow:hidden;text-decoration:none;box-shadow:0 3px 16px rgba(20,40,80,.06);transition:transform .15s,box-shadow .15s}
+a.pcard:hover{transform:translateY(-3px);box-shadow:0 10px 26px rgba(20,40,80,.11)}
+.pcard .shot{position:relative;aspect-ratio:16/10;background:var(--card);border-bottom:1px solid var(--bord)}
+.pcard .shot img{width:100%;height:100%;object-fit:cover;object-position:top;display:block}
+.badge{position:absolute;left:14px;top:14px;background:var(--blue);color:#fff;font-size:12px;font-weight:700;border-radius:6px;padding:4px 12px;letter-spacing:.06em}
+.badge.mint{background:var(--mintdk)}
+.pcard .body{padding:18px 22px 20px}
+.pcard h3{font-size:17.5px;color:var(--blue);line-height:1.55}
+.pcard h3 small{font-size:11.5px;letter-spacing:.18em;color:var(--mintdk);display:block;margin-bottom:4px}
+.pcard p{font-size:13.5px;color:var(--mute);margin-top:8px}
+.pcard .go{display:block;margin-top:12px;font-size:13.5px;font-weight:700;color:var(--blue)}
+.note-inline{display:block;font-size:12.5px;color:var(--mute);margin-top:6px}
+
+/* ---- status table ---- */
+.status{background:#fff;border:1px solid var(--bord);border-radius:12px;overflow:hidden;box-shadow:0 3px 16px rgba(20,40,80,.06)}
+.status .shd{background:var(--card);border-bottom:1px solid var(--bord);padding:16px 24px;font-size:13.5px;color:var(--mute)}
+.status .shd b{color:var(--blue)}
+.tscroll{overflow-x:auto}
+table{width:100%;border-collapse:collapse;font-size:14px;min-width:640px}
+th{background:#FAFBFD;text-align:left;font-size:12.5px;color:var(--mute);letter-spacing:.06em;padding:12px 18px;border-bottom:1px solid var(--bord);white-space:nowrap}
+td{padding:13px 18px;border-bottom:1px solid var(--bord);vertical-align:top}
+tr:last-child td{border-bottom:0}
+td.item{font-weight:700;white-space:nowrap}
+td.st{white-space:nowrap}
+.pill{display:inline-block;font-size:12px;font-weight:700;border-radius:999px;padding:3px 14px}
+.pill.ok{background:var(--mintbg);border:1px solid var(--mintbd);color:var(--mintdk)}
+.pill.doing{background:var(--amberbg);border:1px solid var(--amberbd);color:var(--amber)}
+.pill.hold{background:#EEF0F4;border:1px solid #D5DAE3;color:#5C6470}
+
+/* ---- doc cards ---- */
+.dcard{display:grid;grid-template-columns:56px 1fr auto;gap:18px;align-items:center;background:#fff;border:1px solid var(--bord);border-radius:10px;padding:18px 22px;margin-bottom:13px;text-decoration:none;box-shadow:0 2px 12px rgba(20,40,80,.05);transition:transform .15s,border-color .15s}
+a.dcard:hover{transform:translateY(-2px);border-color:var(--mintbd)}
+.dcard .ic{width:56px;height:56px;border-radius:10px;display:grid;place-items:center;font-size:26px;background:var(--mintbg);border:1px solid var(--mintbd)}
+.dcard b{font-size:16.5px;color:var(--blue)}
+.dcard p{margin:2px 0 0;font-size:13.5px;color:var(--mute)}
+.dcard .go{font-size:13.5px;font-weight:700;color:var(--blue);white-space:nowrap}
+
+.note{font-size:13px;color:var(--mute);background:#fff;border:1px solid var(--bord);border-radius:8px;padding:14px 18px;margin-top:34px}
+footer{color:var(--mute);font-size:12.5px;padding:26px 0 32px}
+footer .wrap{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;align-items:center}
+footer img{height:20px;vertical-align:middle;margin-right:8px}
+
+@media(max-width:760px){
+  .grid{grid-template-columns:1fr}
+  th,td{padding:10px 12px}
+  td.item{white-space:normal}
+  .chips{gap:8px}.chip{padding:7px 14px;font-size:12.5px}
+}
+</style>
+</head>
+<body>
+<div class="gradbar"></div>
+
+<div class="tbar">
+  <div class="wrap">
+    <img src="brand/itline-logo.jpg" alt="株式会社ITLINE">
+    <span>ITでビジネスをもっと前へ。｜AI×クリエイター ハイブランドWebソリューション</span>
+  </div>
+</div>
+
+<div class="hero">
+  <div class="wrap">
+    <p class="kicker">DOCUMENT INDEX</p>
+    <h1>公共AIナレッジ研究会<br>公式Webサイト ご確認用資料一覧</h1>
+    <p class="sub">株式会社ITLINE｜2026年8月6日現在</p>
+    <div class="chips">
+      <span class="chip">本公開：<b>8月末 目標</b></span>
+      <span class="chip">公開先：<b>trustedfor.ai 配下</b></span>
+      <span class="chip">フォーム通知：<b>info@trustedfor.ai</b></span>
+      <span class="chip">カラー：<b>ELSI規定色＋中央大学ネイビー</b></span>
+    </div>
+  </div>
+</div>
+
+<main>
+  <div class="wrap">
+
+    <div class="shead"><h2>デザイン案</h2><span class="en">DESIGNS</span><span class="cnt">パターン6＝採用版（パターン4＋8月6日ご要望反映）</span></div>
+
+    <div class="grid">
+      <a class="pcard" href="pattern6/index.html" target="_blank" rel="noopener">
+        <span class="shot"><img src="thumbs/pattern6.jpg?v=20260807-2" alt="パターン6 採用版のスクリーンショット"><span class="badge" style="background:#C22A22">採用版</span></span>
+        <span class="body">
+          <h3><small>パターン6 ─ ADOPTED</small>採用版（パターン4＋ご要望反映・全14ページ）</h3>
+          <p>ご採用いただいたパターン4をベースに、8月6日のご要望を反映した最新版です。配色はELSIセンターWebページと同じ役割分担（見出し・本文＝黒／リンク・ラベル＝ネイビー／強調＝赤）に統一。赤のポイントカラーを増やし、ELSIセンターマークのファビコン、キャッチワード「Trusted for AI」の強調表示（ヒーロー・各ページ・フッター）を加えています。</p>
+          <span class="go">採用版（パターン6）を見る →</span>
+        </span>
+      </a>
+
+      <a class="pcard" href="pattern4/index.html" target="_blank" rel="noopener">
+        <span class="shot"><img src="thumbs/pattern4.jpg?v=20260806-3" alt="パターン4 Claude Code統合版のスクリーンショット"><span class="badge">Claude Code</span></span>
+        <span class="body">
+          <h3><small>パターン4 ─ CLAUDE CODE INTEGRATED</small>Claude Code版 統合案（全14ページ・8月6日ご採用）</h3>
+          <p>パターン2のデザインディレクションと編集的な見せ方を基礎に、ロゴ規定の黒・赤と補助色のネイビー、全下層ページ、記事詳細、利用規約・著作権、メガメニューまで実装した統合案。運営委員の皆様よりベース案としてご採用いただきました。</p>
+          <span class="go">Claude Code統合版を見る →</span>
+        </span>
+      </a>
+
+    </div>
+
+    <div class="shead" style="margin-top:34px"><h2 style="font-size:16.5px">比較の経緯（4パターン）</h2></div>
+
+    <a class="dcard" href="https://202606071001055476447.onamaeweb.jp/kokyoai-demo/index.html" target="_blank" rel="noopener">
+      <span class="ic">🖥️</span>
+      <span>
+        <b>パターン1｜原案再現版（ご共有モック）</b>
+        <p>ご共有いただいたAI生成モックを原則そのまま掲載（全11ページ）。※閲覧にはID・パスワードが必要です</p>
+      </span>
+      <span class="go">見る →</span>
+    </a>
+
+    <a class="dcard" href="pattern2/index.html" target="_blank" rel="noopener">
+      <span class="ic">🤖</span>
+      <span>
+        <b>パターン2｜Claude Code ブラッシュアップ版</b>
+        <p>デザインディレクションのベースとしてご選定いただいた案（全12ページ）。</p>
+      </span>
+      <span class="go">見る →</span>
+    </a>
+
+    <a class="dcard" href="pattern3/index.html" target="_blank" rel="noopener">
+      <span class="ic">⚙️</span>
+      <span>
+        <b>パターン3｜Codex 再構成版</b>
+        <p>レイアウト（スケルトン）・フォント・メインビジュアルのベースとしてご選定いただいた案（全12ページ）。</p>
+      </span>
+      <span class="go">見る →</span>
+    </a>
+
+    <a class="dcard" href="pattern5/index.html" target="_blank" rel="noopener">
+      <span class="ic">📄</span>
+      <span>
+        <b>パターン5｜Codex 統合版</b>
+        <p>同一のご要望を反映したCodex側の統合比較案（全15ページ）。比較の結果、パターン4のご採用となりました。</p>
+      </span>
+      <span class="go">見る →</span>
+    </a>
+
+    <div class="gap"></div>
+    <div class="shead"><h2>ご確認事項の進捗</h2><span class="en">STATUS</span><span class="cnt">2026年8月6日現在</span></div>
+
+    <div class="status">
+      <div class="shd"><b>運営委員の皆様よりご回答をいただきました。</b>ご回答にもとづき、以下の前提で制作を進めております。</div>
+      <div class="tscroll">
+      <table>
+        <thead><tr><th style="width:26%">確認事項</th><th>ご回答・現在の前提</th><th style="width:12%">状況</th></tr></thead>
+        <tbody>
+          <tr><td class="item">デザイン方向性</td><td>パターン4（Claude Code版）を8月6日にご採用。ご要望3点（赤ポイント増・ELSIマークのファビコン・Trusted for AI強調）を反映した採用版＝パターン6を制作</td><td class="st"><span class="pill ok">確定</span></td></tr>
+          <tr><td class="item">イメージカラー</td><td>中央大学ELSIロゴマニュアル指定色（黒・赤・白）を基調に、大学サイトのネイビーを補助色として使用</td><td class="st"><span class="pill ok">確定</span></td></tr>
+          <tr><td class="item">本公開URL</td><td>trustedfor.ai 配下に設置</td><td class="st"><span class="pill ok">確定</span></td></tr>
+          <tr><td class="item">フォーム送信先</td><td>入会申込・お問い合わせとも info@trustedfor.ai へ自動送信</td><td class="st"><span class="pill ok">確定</span></td></tr>
+          <tr><td class="item">フォーム実装時期</td><td>初回公開時から実装</td><td class="st"><span class="pill ok">確定</span></td></tr>
+          <tr><td class="item">仕様書の掲載・表現</td><td>表現は「公開予定です。」に統一。研究会内のご確認は8月中の完了見込み</td><td class="st"><span class="pill doing">確認中</span></td></tr>
+          <tr><td class="item">会員に関する掲載</td><td>掲載予定として制作を進行。会員名・所属・写真・コメントは個別にご確認中</td><td class="st"><span class="pill doing">確認中</span></td></tr>
+          <tr><td class="item">事務局情報の公開</td><td>メールは info@trustedfor.ai に統一。担当者名は福田様・大塚様・松崎様</td><td class="st"><span class="pill ok">確定</span></td></tr>
+          <tr><td class="item">ページ構成の追加</td><td>サイト利用規約・著作権の取扱いを追加実装。サイトマップのAI対応は別途検討</td><td class="st"><span class="pill ok">確定</span></td></tr>
+          <tr><td class="item">プライバシーポリシー</td><td>法人格がないため当面見送り（将来の法人化等の際に再検討）</td><td class="st"><span class="pill hold">保留</span></td></tr>
+          <tr><td class="item">会員専用ページ・English</td><td>将来対応の想定（当面は未掲載のまま進行）</td><td class="st"><span class="pill hold">将来対応</span></td></tr>
+          <tr><td class="item">お知らせ 記事詳細</td><td>記事詳細ページを実装</td><td class="st"><span class="pill ok">確定</span></td></tr>
+          <tr><td class="item">本公開の時期</td><td>全体8月中。TOPページから出来次第の順次掲載に対応（未完成ページは「公開準備中」表示）</td><td class="st"><span class="pill ok">確定</span></td></tr>
+        </tbody>
+      </table>
+      </div>
+    </div>
+
+    <div class="gap"></div>
+    <div class="shead"><h2>ご提案・進行資料</h2><span class="en">DOCUMENTS</span></div>
+
+    <a class="dcard" href="公共AIナレッジ研究会_公開企画表.html">
+      <span class="ic">📋</span>
+      <span>
+        <b>公開企画表</b>
+        <p>3パターンの制作方針と進行計画をまとめた資料です。</p>
+      </span>
+      <span class="go">開く →</span>
+    </a>
+
+    <a class="dcard" href="公共AIナレッジ研究会_サイトマップ.html">
+      <span class="ic">🗺️</span>
+      <span>
+        <b>サイトマップ（サイト構成図）</b>
+        <p>正式公開に向けた全体構成のご提案です。原案再現版11ページとの差分もあわせて記載しています。</p>
+      </span>
+      <span class="go">開く →</span>
+    </a>
+
+    <div class="note">
+      本ページおよび各デザイン案は、検索エンジンへの登録を抑制する設定（noindex）を施した確認用のものです。パターン1はID・パスワードで保護しておりますが、本ページとパターン2〜5にはアクセス制限はございませんので、URLのお取り扱いにはご注意ください。
+    </div>
+
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span><img src="brand/itline-logo.jpg" alt="">© 株式会社ITLINE</span>
+    <span>お問い合わせ：kodama@itline.co.jp</span>
+  </div>
+</footer>
+
+</body>
+</html>

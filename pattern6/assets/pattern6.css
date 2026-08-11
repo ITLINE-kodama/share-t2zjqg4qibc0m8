@@ -1,0 +1,97 @@
+/* ============================================================
+   Pattern 6 / ADOPTED（2026-08-06 → 2026-08-07 改訂）
+   パターン4採用の正式回答（福田様）を受けたご要望反映版
+   ①赤のポイントカラーを増量 ②ELSIセンターマークのファビコン
+   ③キャッチワード「Trusted for AI」の強調
+
+   ■ カラー方針（2026-08-07 確定）
+   パターン4の骨格＝ELSI規定色（黒 #221815／赤 #E3372E／白）＋
+   中央大学 ELSIセンターページと同じネイビー #1E3C90 を機能色とする構成を
+   そのまま維持し、**赤はポイント使いを増やす**方向のみ調整する。
+   （ELSIセンターページ実測: ネイビー #1E3C90 をリンク・ナビ・パンくず・
+     見出し罫・ボタン背景に広く使用）
+   ============================================================ */
+
+/* ---------- ①赤ポイント増量（「もう少し入れても良い」FB） ---------- */
+.btn-join{background:var(--gold-tx);border-color:var(--gold-tx)}
+.btn-join:hover{background:#A6231C;border-color:#A6231C}
+.btn.solid:hover{background:var(--gold-tx);border-color:var(--gold-tx)}
+.ph-index a span{color:var(--gold-tx)}
+.ghost-num{-webkit-text-stroke-color:rgba(227,55,46,.16)}
+.news-list .arw{color:var(--gold-tx)}
+.archive-index-head p{color:var(--gold-tx)}
+/* ヒーロー見出しのマーカーと右パネル上罫は、ご指示によりネイビーのまま（2026-08-07） */
+.hero-news .in .tag.navy{background:var(--gold);border-color:var(--gold);color:#fff}
+
+/* ---------- ①-b 赤ポイント追加（2026-08-07・ネイビー基調は維持） ---------- */
+.page-hero::before{background:var(--gold)}                 /* 下層ページ見出し肩の72pxバー */
+.steps li::before{color:var(--gold-tx)}                    /* 手続きステップの番号 */
+.output-eyebrow{color:var(--gold-tx)}                      /* 最新成果パネルの小見出し */
+.activity-timeline li:nth-child(2) .timeline-index{        /* 活動タイムラインの現在地 */
+  border-color:var(--gold-tx);background:var(--gold-tx);color:#fff}
+.faq summary::before{color:var(--gold-tx)}                 /* FAQの「Q」 */
+.article .no span{color:var(--gold-tx)}                    /* 規約・利用規約の条番号 */
+
+/* ---------- ③Trusted for AI 強調 ---------- */
+.archive-copy .kicker{font-size:.82rem;letter-spacing:.22em}
+.foot-tagline{margin:0 0 12px;font:700 .92rem var(--mono);letter-spacing:.18em;color:#fff}
+.foot-tagline::before{content:"";display:inline-block;width:9px;height:9px;border-radius:50%;background:var(--gold);margin-right:10px;vertical-align:1px}
+
+/* ============================================================
+   ④ 見出しテキストのモーション（2026-08-07 追加）
+   参考: design-inc.co.jp の作法を移植
+     ・MV見出し   = 1文字ずつのタイプライター＋点滅キャレット
+     ・下層FV見出し = 左→右の2段ワイプ（半調で現れ→本調で締まる）
+   ■ 実装方針（ご指示「文字の場所は今のまま」＝厳守）
+     参考サイトは display:none→inline で1文字ずつ“幅を増やす”方式だが、
+     それだと折り返し・中央位置・見出し下のマーカー幅・h1の高さが動く。
+     本実装は opacity / clip-path / transform のみで表現し、
+     文字の占有スペースは最初から確定させる ＝ リフロー(レイアウト移動)ゼロ。
+     キャレットも position:absolute で行送りに一切関与させない。
+   ■ 色は一切変更しない（currentColor と既存指定のみを使用）
+   ============================================================ */
+
+/* JS実行前の一瞬のチラつきを防ぐ。JS無効時は各HTMLの<noscript>と下の@mediaで表示される */
+#hero-title,.page-hero h1{visibility:hidden}
+@media (scripting:none){#hero-title,.page-hero h1{visibility:visible}}
+
+/* --- MV：タイプライター --- */
+#hero-title{position:relative;animation:none}   /* p4-rise は打ち込み演出に置き換える */
+#hero-title.tw-ready,.page-hero h1.tw-ready{visibility:visible}
+.tw-char{opacity:0}
+#hero-title.tw-ready .tw-char{transition:opacity .3s linear}
+.tw-char.tw-on{opacity:1}
+.tw-caret{position:absolute;top:0;left:0;width:2px;height:.72em;margin-top:.19em;background:currentColor;opacity:0;pointer-events:none;will-change:left,top}
+.tw-caret.tw-on{opacity:1;animation:tw-blink .8s steps(1,end) infinite}
+@keyframes tw-blink{0%,49%{opacity:1}50%,100%{opacity:0}}
+/* 1文字spanが既存の「.archive-copy h1 span」指定を拾わないよう打ち消す */
+.archive-copy h1 .tw-char{position:static;white-space:inherit}
+.archive-copy h1 .tw-char::after{content:none}
+/* 見出しのマーカー（斜めの帯）は、打ち終わってから左→右に伸ばす */
+.archive-copy h1 .tw-mark::after{transform-origin:0 50%}
+#hero-title.tw-ready .tw-mark::after{transform:skewX(-14deg) scaleX(0)}
+#hero-title.tw-done .tw-mark::after{transform:skewX(-14deg) scaleX(1);transition:transform .5s cubic-bezier(.7,.1,.2,1)}
+
+/* --- 下層ページFV：2段ワイプ --- */
+/* width:fit-content ＝ ワイプの基準幅を「文字の幅」に合わせる。
+   1行見出しは文字幅、折り返す長い見出しは行幅いっぱいになるため、
+   見出しの表示位置・折り返し位置は変わらない。 */
+.tw-wipe{position:relative;display:block;width:fit-content;max-width:100%}
+.tw-wipe .tw-main{display:block;clip-path:inset(0 100% 0 0)}
+.tw-wipe .tw-ghost{position:absolute;inset:0;opacity:.5;pointer-events:none;clip-path:inset(0 100% 0 0)}
+.page-hero h1.tw-go .tw-ghost{clip-path:inset(0 0 0 0);transition:clip-path .72s cubic-bezier(.7,.1,.2,1) .12s}
+.page-hero h1.tw-go .tw-main{clip-path:inset(0 0 0 0);transition:clip-path .5s cubic-bezier(.7,.1,.2,1) .46s}
+/* 見出し肩の72pxバー（赤）も参考サイトと同じく最後に引く */
+.page-hero::before{transform-origin:0 50%}
+.page-hero.tw-go::before{animation:tw-bar .3s cubic-bezier(.7,.1,.2,1) .92s both}
+@keyframes tw-bar{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+
+/* --- モーション低減設定：即時表示 --- */
+@media (prefers-reduced-motion:reduce){
+  .tw-char{opacity:1}
+  .tw-caret{display:none}
+  #hero-title.tw-ready .tw-mark::after{transform:skewX(-14deg) scaleX(1)}
+  .tw-wipe .tw-main,.tw-wipe .tw-ghost{clip-path:none;transition:none}
+  .tw-wipe .tw-ghost{display:none}
+  .page-hero.tw-go::before{animation:none}
+}

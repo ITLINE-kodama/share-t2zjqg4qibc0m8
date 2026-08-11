@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1330 260" role="img" aria-label="公共AIナレッジ研究会 PUBLIC AI KNOWLEDGE CONSORTIUM">
+  <g>
+    <rect x="20" y="20" width="60" height="200" fill="#FFFFFF"/>
+    <rect x="94" y="20" width="126" height="38" fill="#FFFFFF"/>
+    <rect x="94" y="86" width="126" height="40" fill="#FFFFFF"/>
+    <path d="M94 150 L182 202 L182 220 L94 220 Z" fill="#FFFFFF"/>
+    <rect x="20" y="232" width="200" height="10" fill="#E3372E"/>
+  </g>
+  <text x="290" y="128" font-family="'BIZ UDPGothic','Hiragino Sans','Yu Gothic',sans-serif" font-weight="700" font-size="86" letter-spacing="6" fill="#FFFFFF">公共AIナレッジ研究会</text>
+  <text x="292" y="198" font-family="'Roboto Mono','BIZ UDPGothic',monospace" font-size="33" letter-spacing="11" fill="#FFFFFF">PUBLIC AI KNOWLEDGE CONSORTIUM</text>
+</svg>

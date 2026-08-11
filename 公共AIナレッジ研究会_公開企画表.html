@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>公共AIナレッジ研究会 公式Webサイト｜公開企画表（株式会社ITLINE）</title>
+<style>
+:root{
+  --blue:#003399; --ink:#222222; --ink2:#242424; --mute:#6B7280; --bord:#E3E7EE;
+  --mint:#6BE2DE; --mint2:#79EDC0; --mintbg:#EFFBF9; --paper:#FFFFFF; --card:#F7F9FB;
+  --grad:linear-gradient(90deg,#6BE2DE 0%,#6AECD4 55%,#79EDC0 100%);
+  --font:"Yu Gothic UI","YuGothic UI","Yu Gothic","Meiryo",system-ui,sans-serif;
+  --maxw:920px;
+}
+*{box-sizing:border-box}
+body{margin:0;font-family:var(--font);color:var(--ink);background:var(--paper);font-size:15.5px;line-height:1.9;-webkit-font-smoothing:antialiased}
+a{color:var(--blue)}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 22px}
+.gradbar{height:6px;background:var(--grad)}
+
+/* header */
+.head{background:#fff;border-bottom:1px solid var(--bord);padding:30px 0 26px}
+.head .top{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.head img.logo{height:44px;width:auto;display:block}
+.head .tag{font-size:11.5px;color:var(--mute);letter-spacing:.04em}
+.head h1{font-size:clamp(22px,3.6vw,30px);font-weight:700;color:var(--ink);margin:20px 0 6px;line-height:1.5}
+.head h1 .b{color:var(--blue)}
+.head .sub{color:var(--mute);font-size:13.5px;margin:0}
+.head .meta{display:flex;gap:16px;flex-wrap:wrap;margin-top:14px;font-size:11.5px;color:var(--mute)}
+.head .meta span{background:var(--card);border:1px solid var(--bord);border-radius:3px;padding:2px 10px}
+
+section{padding:40px 0 6px}
+.eyebrow{font-size:11px;letter-spacing:.2em;color:#2AA79B;font-weight:700;margin:0 0 6px}
+h2{font-size:clamp(19px,2.6vw,24px);font-weight:700;color:var(--blue);margin:0 0 12px;padding-left:14px;border-left:5px solid;border-image:linear-gradient(180deg,#6BE2DE,#79EDC0) 1}
+.lead{color:var(--mute);font-size:14px;margin:0 0 20px}
+
+/* policy */
+.pol{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin:4px 0 8px}
+@media(max-width:640px){.pol{grid-template-columns:1fr}}
+.pol .p{background:var(--mintbg);border:1px solid #CBEFE9;border-radius:6px;padding:13px 16px;font-size:13.5px}
+.pol .p b{display:block;color:var(--ink);font-size:14px;margin-bottom:2px}
+
+/* steps */
+.step{display:grid;grid-template-columns:104px 1fr;border:1px solid var(--bord);border-radius:8px;margin-bottom:16px;overflow:hidden;background:#fff;box-shadow:0 2px 10px rgba(20,40,80,.04)}
+.step .no{background:var(--blue);color:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:16px 8px;gap:4px}
+.step .no .s{font-size:10px;letter-spacing:.2em;color:#B9C8EC}
+.step .no .n{font-size:30px;font-weight:700;line-height:1}
+.step.done .no{background:linear-gradient(160deg,#2AA79B,#3FC3A9)}
+.step .bd{padding:16px 20px 14px}
+.step h3{margin:0 0 6px;font-size:16.5px;color:var(--ink);display:flex;align-items:center;gap:10px;flex-wrap:wrap;font-weight:700}
+.step p{margin:0 0 8px;font-size:13.5px}
+.step .sub{font-size:12.5px;color:var(--mute)}
+.badge{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.06em;padding:2.5px 12px;border-radius:999px;white-space:nowrap}
+.badge.done{background:var(--mintbg);border:1px solid #9FE3D6;color:#1D8A7E}
+.badge.now{background:#FFF6E5;border:1px solid #F2D9A6;color:#9A6B00}
+.badge.todo{background:var(--card);border:1px solid var(--bord);color:var(--mute)}
+.demo-btn{display:inline-block;background:var(--blue);color:#fff;font-weight:700;font-size:14px;padding:11px 22px;border-radius:6px;text-decoration:none;margin:6px 0 4px}
+.demo-btn:hover{background:#0041c4}
+.demo-btn .ar{margin-left:8px}
+.urlcap{display:block;font-size:11.5px;color:var(--mute);margin-top:4px;word-break:break-all}
+.flow-arrow{text-align:center;color:#9FE3D6;font-size:20px;line-height:1;margin:-6px 0 10px}
+
+/* table */
+table{width:100%;border-collapse:collapse;font-size:13.5px;margin:12px 0 24px;background:#fff}
+th,td{border:1px solid var(--bord);padding:9px 12px;text-align:left;vertical-align:top}
+th{background:var(--card);color:var(--ink);font-size:12.5px;white-space:nowrap}
+.note{background:var(--mintbg);border-left:4px solid #6BE2DE;padding:12px 16px;font-size:13px;color:#3b5a55;margin:14px 0;border-radius:0 6px 6px 0}
+
+/* status pills */
+.st{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.05em;padding:2px 12px;border-radius:999px;white-space:nowrap}
+.st.ok{background:var(--mintbg);border:1px solid #9FE3D6;color:#1D8A7E}
+.st.now{background:#FFF6E5;border:1px solid #F2D9A6;color:#9A6B00}
+.st.hold{background:var(--card);border:1px solid var(--bord);color:var(--mute)}
+
+/* horizontal schedule (gantt) */
+.gscroll{overflow-x:auto;margin:14px 0 8px}
+.gantt{position:relative;min-width:780px;border:1px solid var(--bord);border-radius:8px;background:#fff;padding:14px 16px 18px;box-shadow:0 2px 10px rgba(20,40,80,.04)}
+.grow{display:grid;grid-template-columns:218px repeat(8,1fr);align-items:center;min-height:44px}
+.grow+.grow{border-top:1px dashed #EEF1F6}
+.grow .gl{font-size:12.5px;font-weight:700;color:var(--ink);padding-right:14px;line-height:1.5}
+.grow .gl small{display:block;font-weight:400;color:var(--mute);font-size:11px}
+.grow.ghead{min-height:30px;border-top:0}
+.grow.ghead .gc{font-size:11px;color:var(--mute);text-align:center;border-left:1px solid #EEF1F6;grid-column:span 2}
+.grow.ghead .gc:first-of-type{border-left:0}
+.gbar{height:16px;border-radius:999px;position:relative}
+.gbar.done{background:var(--grad)}
+.gbar.now{background:linear-gradient(90deg,#FFCF6E,#F7B733)}
+.gbar.todo{background:#C9D8F5}
+.gbar.pub{background:var(--blue)}
+.gcell{position:relative;height:100%;display:flex;align-items:center}
+.gmark{font-size:11px;font-weight:700;color:var(--blue);white-space:nowrap}
+.gmark .d{color:var(--blue);font-size:13px;margin-right:3px}
+.gtoday{position:absolute;top:44px;bottom:14px;border-left:2px dashed #F0A93B;z-index:1}
+.gtoday span{position:absolute;top:-16px;left:-26px;font-size:10.5px;font-weight:700;color:#9A6B00;white-space:nowrap}
+.glegend{display:flex;gap:16px;flex-wrap:wrap;font-size:11.5px;color:var(--mute);margin-top:6px}
+.glegend i{display:inline-block;width:22px;height:10px;border-radius:999px;margin-right:5px;vertical-align:-1px}
+
+/* ITLINE appeal */
+.itline{background:var(--card);border:1px solid var(--bord);border-radius:8px;padding:22px 24px;margin:8px 0 24px;display:grid;grid-template-columns:150px 1fr;gap:22px;align-items:center}
+.itline img{width:100%;height:auto}
+.itline b{color:var(--blue);font-size:15px}
+.itline p{margin:4px 0 0;font-size:13px;color:var(--ink2)}
+@media(max-width:600px){.itline{grid-template-columns:1fr}.itline img{width:150px}}
+
+footer{border-top:1px solid var(--bord);color:var(--mute);font-size:12.5px;padding:22px 0;margin-top:40px}
+footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;align-items:center}
+footer img{height:22px;vertical-align:middle;margin-right:10px}
+@media(max-width:560px){.step{grid-template-columns:1fr}.step .no{flex-direction:row;padding:9px}}
+</style>
+</head>
+<body>
+<div class="gradbar"></div>
+
+<div class="head">
+  <div class="wrap">
+    <div class="top">
+      <img class="logo" src="brand/itline-logo.jpg" alt="ITLINE">
+      <span class="tag">ITでビジネスをもっと前へ。｜AI×クリエイター ハイブランドWebソリューション</span>
+    </div>
+    <h1>公共AIナレッジ研究会 公式Webサイト<br><span class="b">公開企画表</span></h1>
+    <p class="sub">デザイン方向性のご確定（8月5日）を受けた統合版の制作状況と、8月末の本公開までの進行計画です。</p>
+    <div class="meta">
+      <span>2026年8月6日現在</span>
+      <span>作成：株式会社ITLINE</span>
+      <span>宛先：公共AIナレッジ研究会 事務局御中</span>
+    </div>
+  </div>
+</div>
+
+<section>
+  <div class="wrap">
+    <p class="eyebrow">ROADMAP</p>
+    <h2>方向性が確定し、統合版（パターン4・5）をご確認いただいています</h2>
+    <p class="lead">3パターンの比較検討を経て、8月5日にデザインの方向性が確定しました。確定した方向性を反映した統合版2案（パターン4・5）を全ページ制作し、現在ご確認をお願いしている段階です。ご確認後、フィードバックを反映して本公開の準備（WordPress化・フォーム実装・trustedfor.ai設置）へ進みます。</p>
+
+    <div class="pol" style="margin-bottom:26px">
+      <div class="p"><b>骨格・フォント・メインビジュアル</b>パターン3（Codex再構成版）の情報設計をベースにします。</div>
+      <div class="p"><b>デザインディレクション</b>パターン2（Claude Code版）の編集的な見せ方・演出を取り入れます。</div>
+      <div class="p"><b>カラー</b>中央大学ELSIセンター規定色（黒・赤・白）を基調に、中央大学サイトのネイビーを補助色とします。</div>
+      <div class="p"><b>公開の進め方</b>全体で8月中の公開を目標に、トップページからの順次公開にも対応します。</div>
+    </div>
+
+    <div class="step done">
+      <div class="no"><span class="s">STEP</span><span class="n">1</span></div>
+      <div class="bd">
+        <h3>パターン1：原案再現版（ご共有モック）<span class="badge done">完了（比較検討）</span></h3>
+        <p><b>→ ご共有いただいたAI生成モックを原則そのまま確認用環境へ掲載した原案再現版です。</b>デザインおよび掲載内容の確認を目的としており、正式公開内容を確定したものではございません。</p>
+        <a class="demo-btn" href="https://202606071001055476447.onamaeweb.jp/kokyoai-demo/index.html" target="_blank" rel="noopener">原案再現版を見る<span class="ar">→</span></a>
+        <span class="urlcap">https://202606071001055476447.onamaeweb.jp/kokyoai-demo/index.html（全11ページ・スマートフォン表示対応）</span>
+        <p class="sub" style="margin-top:8px">掲載ページ：トップ／研究会について／体制・会員リスト／規約／ナレッジベースとは／仕様書・成果物／活動・ロードマップ／実証事業／お知らせ／参加のご案内／お問い合わせ。仕様書ダウンロード欄は研究会内でのご確認完了まで「公開準備中」表示としています。</p>
+        <div class="note" style="margin:12px 0 0">本デモはデザイン・掲載内容をご確認いただくためのモックアップです。フォーム送信、資料ダウンロード、プライバシーポリシー等の一部機能は、正式公開版で実装・接続する想定です。また原案内には、仕様書に関する「公開しています」等の表現をはじめ、公開方針や掲載許諾についてご確認が必要と思われる箇所が含まれております。詳細はご確認用資料一覧の「原案再現版についてのご確認事項」をご覧ください。</div>
+      </div>
+    </div>
+    <div class="flow-arrow">▼</div>
+
+    <div class="step done">
+      <div class="no"><span class="s">STEP</span><span class="n">2</span></div>
+      <div class="bd">
+        <h3>パターン2：Claude Code ブラッシュアップ版<span class="badge done">完了（ディレクション採用）</span></h3>
+        <p><b>→ ご共有いただいた構成案をもとに、株式会社ITLINEにて Claude Code を使用して制作いたしました。</b>公開保留事項、掲載許諾、導線、フォーム、アクセシビリティ等を整理した制作版です。図版・写真など追加要素の作り込み（後日修正のご方針どおり）も、この版で進めます。</p>
+        <a class="demo-btn" href="pattern2/index.html" target="_blank" rel="noopener">ブラッシュアップ版を見る<span class="ar">→</span></a>
+        <span class="urlcap">構成案の11ページにサイトポリシー（案）を加えた全12ページ・スマートフォン表示対応</span>
+        <p class="sub" style="margin-top:8px">仕様書は研究会内でのご確認完了まで「公開準備中」表示としています。入会申込・お問い合わせフォームはデザイン確認用のモックアップで、送信機能は正式公開版で実装・接続する想定です。</p>
+      </div>
+    </div>
+    <div class="flow-arrow">▼</div>
+
+    <div class="step done">
+      <div class="no"><span class="s">STEP</span><span class="n">3</span></div>
+      <div class="bd">
+        <h3>パターン3：Codex 再構成版<span class="badge done">完了（骨格・MV採用）</span></h3>
+        <p><b>→ 同じご提供資料をもとに、Codex を使用して制作いたしました。</b>情報設計と表現を別の観点から再構成した比較案です。</p>
+        <a class="demo-btn" href="pattern3/index.html" target="_blank" rel="noopener">Codex 再構成版を見る<span class="ar">→</span></a>
+        <span class="urlcap">全12ページ・スマートフォン表示対応</span>
+        <p class="sub" style="margin-top:8px">パターン2と同様に、仕様書の掲載は研究会内でのご確認完了までペンディングとし、フォームはモックアップとしています。</p>
+      </div>
+    </div>
+    <div class="flow-arrow">▼</div>
+
+    <div class="step done">
+      <div class="no"><span class="s">STEP</span><span class="n">4</span></div>
+      <div class="bd">
+        <h3>統合版のご確認 → パターン4 ご採用<span class="badge done">8月6日 ご採用</span></h3>
+        <p><b>→ 統合版2案（パターン4・5）の比較の結果、パターン4（Claude Code統合版）をご採用いただきました。</b>あわせて、①赤のポイントカラーの増量 ②ELSIセンターマークのファビコン ③キャッチワード「Trusted for AI」の強調表示、の3点のご要望をいただき、反映した採用版＝<b>パターン6</b>を制作しました。</p>
+        <a class="demo-btn" href="pattern6/index.html" target="_blank" rel="noopener">採用版（パターン6）を見る<span class="ar">→</span></a>
+        <span class="urlcap">スマートフォン表示対応。フォームはモックアップ（送信機能は本番サーバー設置時に接続・通知先 info@trustedfor.ai）。</span>
+      </div>
+    </div>
+    <div class="flow-arrow">▼</div>
+
+    <div class="step">
+      <div class="no" style="background:#8A93A6"><span class="s">STEP</span><span class="n">5</span></div>
+      <div class="bd">
+        <h3>本公開の準備 → 8月末 公開<span class="badge todo">ご確認後に着手</span></h3>
+        <p><b>→ フィードバック反映のうえ、WordPress化・フォーム実装を行い、trustedfor.ai 配下へ設置します。</b>公開時に検索エンジン抑制（noindex）を解除します。トップページからの順次公開にも対応可能です。</p>
+        <p class="sub">詳細な日程は下の「公開までのスケジュール」をご覧ください。</p>
+      </div>
+    </div>
+
+    <div class="note" style="margin-top:4px"><b>現在の段階：</b>統合版（パターン4・5）を運営委員の皆さまにご確認いただいています。ご意見・修正のご要望をいただければ反映のうえ、本公開の準備へ進みます。</div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <p class="eyebrow">SCHEDULE</p>
+    <h2>公開までのスケジュール（8月末公開・目安）</h2>
+    <p class="lead">ご確定いただいた「全体で8月中の公開」から逆算した進行の目安です。統合版のご確認の進み具合にあわせて調整いたします。トップページからの順次公開をご希望の場合は、先行して公開手続きに入ることも可能です。</p>
+
+    <div class="gscroll">
+      <div class="gantt">
+        <div class="gtoday" style="left:calc(218px + (100% - 250px) * 0.12)"><span>▼ 8/6 現在</span></div>
+        <div class="grow ghead">
+          <span></span>
+          <span class="gc">〜8/9</span>
+          <span class="gc">8/10〜16</span>
+          <span class="gc">8/17〜23</span>
+          <span class="gc">8/24〜31</span>
+        </div>
+        <div class="grow">
+          <span class="gl">統合版デザインのご確認<small>8月6日 パターン4ご採用（完了）</small></span>
+          <div class="gcell" style="grid-column:2/5"><div class="gbar done" style="width:100%"></div></div>
+        </div>
+        <div class="grow">
+          <span class="gl">フィードバック反映・全ページ仕上げ<small>採用版（パターン6）で反映中</small></span>
+          <div class="gcell" style="grid-column:4/7"><div class="gbar now" style="width:100%"></div></div>
+        </div>
+        <div class="grow">
+          <span class="gl">WordPress化・フォーム実装<small>通知先 info@trustedfor.ai へ接続</small></span>
+          <div class="gcell" style="grid-column:6/8"><div class="gbar todo" style="width:100%"></div></div>
+        </div>
+        <div class="grow">
+          <span class="gl">trustedfor.ai 設置・動作検証<small>表示・フォーム・スマートフォン確認</small></span>
+          <div class="gcell" style="grid-column:8/9"><div class="gbar todo" style="width:100%"></div></div>
+        </div>
+        <div class="grow">
+          <span class="gl">本公開<small>noindex解除・公開告知</small></span>
+          <div class="gcell" style="grid-column:9/10"><span class="gmark"><span class="d">▼</span>8月末 公開</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="glegend">
+      <span><i style="background:linear-gradient(90deg,#FFCF6E,#F7B733)"></i>進行中</span>
+      <span><i style="background:#C9D8F5"></i>これから（目安）</span>
+      <span><i style="background:#003399"></i>マイルストーン</span>
+    </div>
+    <div class="note">仕様書の研究会内ご確認（8月中）が完了した時点で、仕様書・成果物ページの「公開準備中」表示をダウンロード提供に切り替えます（公開後の差し替えでも対応可能です）。</div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <p class="eyebrow">DECISIONS</p>
+    <h2>ご確認事項の状況（8月4日ご回答反映）</h2>
+    <p class="lead">運営委員の皆さまのご回答により、当初のご確認事項はほぼ確定しました。残りは下表の「確認中」2件です。</p>
+    <table>
+      <tr><th style="width:190px">事項</th><th>内容</th><th style="width:86px">状況</th></tr>
+      <tr><td>本公開のURL</td><td>既存ドメイン trustedfor.ai の配下に設置します。</td><td><span class="st ok">確定</span></td></tr>
+      <tr><td>デザイン方向性</td><td>骨格・フォント・メインビジュアル＝パターン3 × デザインディレクション＝パターン2。統合版（パターン4・5）として制作済みです。</td><td><span class="st ok">確定</span></td></tr>
+      <tr><td>カラー</td><td>中央大学ELSIセンターの規定色（黒・赤・白）を基調に、中央大学サイトのネイビーを補助色とします。</td><td><span class="st ok">確定</span></td></tr>
+      <tr><td>フォーム</td><td>入会申込・お問い合わせとも初回公開時から実装し、通知先は info@trustedfor.ai とします。パターン4にはフォーム画面を実装済みです（送信機能は本番サーバー設置の際に接続し、到達テストのうえ公開します）。</td><td><span class="st ok">確定</span></td></tr>
+      <tr><td>事務局情報</td><td>メールは info@trustedfor.ai に統一。担当者名は福田様・大塚様・松崎様を掲載します。</td><td><span class="st ok">確定</span></td></tr>
+      <tr><td>ページ構成</td><td>原案11ページ＋お知らせ記事詳細＋サイト利用規約・著作権の取扱い（1ページに統合）。統合版に実装済みです。</td><td><span class="st ok">確定</span></td></tr>
+      <tr><td>プライバシーポリシー</td><td>法人格の整備状況を踏まえ策定準備中（フッターにその旨を表記）。HTMLサイトマップはパターン4に実装済みです（機械可読サイトマップ等のAI対応は別途検討）。</td><td><span class="st hold">保留</span></td></tr>
+      <tr><td>会員専用エリア・English</td><td>将来対応とし、本フェーズでは制作しません。</td><td><span class="st ok">確定</span></td></tr>
+      <tr><td>公開時期</td><td>全体で8月中。トップページからの順次公開にも対応します。</td><td><span class="st ok">確定</span></td></tr>
+      <tr><td>仕様書の掲載</td><td>研究会内でのご確認は8月中の予定。表現は「公開予定です。」とし、確認完了後にダウンロード提供へ切り替えます。</td><td><span class="st now">確認中</span></td></tr>
+      <tr><td>会員情報の掲載</td><td>掲載予定として制作を進め、個別のご確認は研究会側で並行して実施いただきます。</td><td><span class="st now">確認中</span></td></tr>
+    </table>
+    <div class="note">本企画表は進行に合わせて随時更新いたします。ご質問・ご指摘は株式会社ITLINE（担当：小玉）までお知らせください。</div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <p class="eyebrow">ABOUT ITLINE</p>
+    <h2>制作体制について</h2>
+    <div class="itline">
+      <img src="brand/itline-logo.jpg" alt="株式会社ITLINE">
+      <div>
+        <b>株式会社ITLINE ─ AI×クリエイター ハイブランドWebソリューション</b>
+        <p>戦略設計・ブランド構築は担当者が行い、調査・制作の反復はAIを活用して進めております。本件では、3パターンの比較検討を経て確定した方向性をもとに、統合版（パターン4・5）の制作と8月末の本公開に向けた進行をご対応しております。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span><img src="brand/itline-logo.jpg" alt="ITLINE">株式会社ITLINE｜公共AIナレッジ研究会 公式Webサイト制作</span>
+    <span>公開企画表｜2026年8月6日現在</span>
+  </div>
+</footer>
+<div class="gradbar"></div>
+<script src="comment/comments.js?v=20260811c" data-thread="plan" data-label="公開企画表" defer></script>
+</body>
+</html>

@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>公共AIナレッジ研究会｜生成AI・AIエージェントのための公共ナレッジベース</title>
+<meta name="description" content="公共AIナレッジ研究会は、行政の現場で生成AI・AIエージェントが参照する「正確・最新・正統な」ナレッジの共通仕様を官民でつくる研究会です。">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' rx='6' fill='%231E2A4A'/%3E%3Crect x='9' y='7' width='6' height='19' fill='%23fff'/%3E%3Crect x='16' y='7' width='13' height='4' fill='%23fff'/%3E%3Crect x='16' y='13' width='13' height='4' fill='%23fff'/%3E%3Cpath d='M16 19 L25 24.5 L25 26 L16 26 Z' fill='%23fff'/%3E%3Crect x='9' y='29' width='20' height='3' fill='%23B8893E'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=BIZ+UDPGothic:wght@400;700&family=BIZ+UDPMincho&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+<noscript><style>.rv{opacity:1;transform:none}</style></noscript>
+</head>
+<body>
+<a class="skip" href="#main">本文へスキップ</a>
+<header class="site-head">
+  <div class="head-in">
+    <a class="brand" href="index.html">
+      <svg class="mark" viewBox="0 0 200 222" aria-hidden="true" focusable="false">
+  <rect x="0" y="0" width="60" height="200" fill="#1E2A4A"/>
+  <rect x="74" y="0" width="126" height="38" fill="#1E2A4A"/>
+  <rect x="74" y="66" width="126" height="40" fill="#1E2A4A"/>
+  <path d="M74 130 L162 182 L162 200 L74 200 Z" fill="#1E2A4A"/>
+  <rect x="0" y="212" width="200" height="10" fill="#B8893E"/>
+</svg>
+      <span><span class="t1">公共AIナレッジ研究会</span>
+      <span class="t2">PUBLIC AI KNOWLEDGE CONSORTIUM</span></span>
+    </a>
+    <nav class="gnav" id="gnav" aria-label="グローバルナビゲーション">
+      <ul>
+        <li><a href="about.html">研究会について</a></li><li><a href="knowledge-base.html">ナレッジベースとは</a></li><li><a href="spec.html">仕様書・成果物</a></li><li><a href="activity.html">活動・ロードマップ</a></li><li><a href="poc.html">実証事業</a></li><li><a href="news.html">お知らせ</a></li>
+      </ul>
+    </nav>
+    <a class="btn-join" href="join.html">参加する</a>
+    <button class="menu-btn" type="button" aria-expanded="false" aria-controls="gnav">メニュー</button>
+  </div>
+</header>
+<main id="main">
+<!-- hero -->
+<div class="hero">
+  <canvas id="hero-canvas" aria-hidden="true"></canvas>
+  <div class="hero-in">
+    <div class="hero-top">
+      <p class="kicker">PUBLIC AI KNOWLEDGE BASE</p>
+      <p class="hero-meta">EST. 2026.02 ／ 43 MEMBERS ／ SPEC VER.1.0</p>
+    </div>
+    <h1><span class="nb">AIが迷わない</span><span class="nb">行政をつくる。</span><br><span class="nb">ナレッジを、</span><span class="nb">社会の<span class="u">共有財産</span>へ。</span></h1>
+    <div class="hero-deck">
+      <p class="lead">行政の現場で生成AI・AIエージェントを安全・確実に使うには、AIが参照する「正確・最新・正統な」ナレッジが必要です。公共AIナレッジ研究会は、その共通仕様「公共AIナレッジベース」を官民でつくり、社会の共有財産とすることを目指しています。</p>
+      <div class="hero-cta">
+        <a class="btn solid" href="spec.html">仕様書 Ver.1.0 のご案内</a>
+        <a class="btn gold" href="poc.html">実証事業のパートナー募集</a>
+      </div>
+    </div>
+
+    <div class="kribbon" role="img" aria-label="ナレッジカードの例。住民票の写しの交付申請の手続き案内に、ナレッジID・版数・カテゴリ・オーナー・有効期間・公開範囲のメタデータが付与されているイメージ図">
+      <div class="kribbon-head">
+        <span class="kc-title">住民票の写しの交付申請 手続き案内</span>
+        <span class="tag teal">RAG参照可</span>
+        <span class="tag teal">出典提示必須</span>
+        <span class="tag">metadata 128項目</span>
+        <span class="tag gold">KNOWLEDGE CARD</span>
+      </div>
+      <dl class="kribbon-grid">
+        <div><dt>KNOWLEDGE ID</dt><dd><code>KID-20260528<wbr>-00013427</code></dd></div>
+        <div><dt>VERSION</dt><dd>KVer 1.2 ／ MVer 3</dd></div>
+        <div><dt>CATEGORY</dt><dd>3.1.2.1<br>（ルール・制約層）<span class="tag" style="margin-left:4px">案</span></dd></div>
+        <div><dt>OWNER</dt><dd>◯◯市 市民課</dd></div>
+        <div><dt>VALID</dt><dd><code>2026-04-01<br>→ 2027-03-31</code></dd></div>
+        <div><dt>SCOPE</dt><dd>PUBLIC<br>／ 全文参照可</dd></div>
+      </dl>
+    </div>
+    <p class="kribbon-cap">▲ 1件のナレッジに付与されるメタデータの例（イメージ）</p>
+  </div>
+  <div class="hero-news">
+    <div class="in">
+      <span class="tag navy">NEWS</span>
+      <time datetime="2026-07-15" style="font-family:var(--mono);font-size:.8rem;color:var(--mute)">2026.07.15</time>
+      <a href="poc.html">AIエージェント実証事業の協力自治体・システム開発事業者を募集しています</a>
+    </div>
+  </div>
+</div>
+
+<!-- issue -->
+<section class="section no-rule">
+  <div class="wrap">
+    <div class="rv">
+      <p class="kicker">01 — ISSUE</p>
+      <h2 style="font-size:clamp(1.5rem,3.4vw,2.45rem);max-width:26em">AIがどんなに賢くても、参照する情報が整っていなければ、答えは正しくならない。</h2>
+      <p class="lead">少子高齢化にともなう労働力不足（2040年問題）に対し、生成AI・AIエージェントによる業務の自動化は、住民サービスを維持・高度化するために欠かせません。しかし現在、AIが参照すべきナレッジは組織ごとにばらばらで、構造化されていません。</p>
+    </div>
+    <figure class="fig rv">
+      <div class="fig-scroll"><svg viewBox="0 0 980 300" role="img" aria-label="現状の課題、共通化の推進、将来ビジョンを示した図">
+          <defs>
+            <marker id="ar1" markerWidth="10" markerHeight="10" refX="8" refY="3.2" orient="auto">
+              <path d="M0,0 L8,3.2 L0,6.4 Z" fill="#B8893E"/>
+            </marker>
+          </defs>
+          <rect x="12" y="30" width="290" height="230" rx="4" fill="#F4F6FA" stroke="#D6DDEA"/>
+          <text x="34" y="62" font-family="Roboto Mono, monospace" font-size="11" fill="#B8893E" letter-spacing="2">01 ISSUE</text>
+          <text x="34" y="92" font-size="17" fill="#1E2A4A" font-family="BIZ UDPMincho, serif">背景と課題</text>
+          <text x="34" y="126" font-size="13" fill="#1B2333">AIが参照すべき「正しい・</text>
+          <text x="34" y="148" font-size="13" fill="#1B2333">最新・正統な」情報がない。</text>
+          <text x="34" y="178" font-size="13" fill="#65718A">自治体ごとに表記も形式も</text>
+          <text x="34" y="198" font-size="13" fill="#65718A">異なり、回答精度が上がらず</text>
+          <text x="34" y="218" font-size="13" fill="#65718A">社会実装が停滞している。</text>
+
+          <line x1="312" y1="145" x2="338" y2="145" stroke="#B8893E" stroke-width="2" marker-end="url(#ar1)"/>
+
+          <rect x="345" y="30" width="290" height="230" rx="4" fill="#1E2A4A"/>
+          <text x="367" y="62" font-family="Roboto Mono, monospace" font-size="11" fill="#B8893E" letter-spacing="2">02 APPROACH</text>
+          <text x="367" y="92" font-size="17" fill="#FFFFFF" font-family="BIZ UDPMincho, serif">共通化の推進</text>
+          <text x="367" y="126" font-size="13" fill="#E6EBF5">官民が共同で利用できる</text>
+          <text x="367" y="148" font-size="13" fill="#E6EBF5">仕様を策定する。</text>
+          <text x="367" y="178" font-size="13" fill="#B9C5DC">整備コストを下げ、共通仕様の</text>
+          <text x="367" y="198" font-size="13" fill="#B9C5DC">普及によって生成AI・AI</text>
+          <text x="367" y="218" font-size="13" fill="#B9C5DC">エージェントの精度を高める。</text>
+
+          <line x1="645" y1="145" x2="671" y2="145" stroke="#B8893E" stroke-width="2" marker-end="url(#ar1)"/>
+
+          <rect x="678" y="30" width="290" height="230" rx="4" fill="#FFFFFF" stroke="#B8893E" stroke-width="1.5"/>
+          <text x="700" y="62" font-family="Roboto Mono, monospace" font-size="11" fill="#B8893E" letter-spacing="2">03 VISION</text>
+          <text x="700" y="92" font-size="17" fill="#1E2A4A" font-family="BIZ UDPMincho, serif">将来ビジョン</text>
+          <text x="700" y="126" font-size="13" fill="#1B2333">オープンなデータ</text>
+          <text x="700" y="148" font-size="13" fill="#1B2333">エコシステムの確立。</text>
+          <text x="700" y="178" font-size="13" fill="#65718A">ナレッジを「共有財産」とし、</text>
+          <text x="700" y="198" font-size="13" fill="#65718A">行政・開発・市民の三者が</text>
+          <text x="700" y="218" font-size="13" fill="#65718A">AIの恩恵を早期に享受する。</text>
+        </svg></div>
+      <figcaption><b>FIG. 01</b>研究会の目的とビジョン</figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- what we do -->
+<section class="section wash">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <p class="kicker">02 — WHAT WE DO</p>
+      <h2>私たちが取り組んでいること</h2>
+      <p class="lead">企業・自治体・有識者が有志で参加する非営利の研究会です。会費は当面無料、成果物は原則公開の方針です。</p>
+    </div>
+    <div class="grid c3 rv" style="background:#fff">
+      <a class="card-link card" href="spec.html">
+        <p class="num">01</p>
+        <h3>共通仕様をつくる</h3>
+        <p>ナレッジの分類体系、メタデータ、ID・版管理、コード体系、ガバナンスを定めた仕様書を策定しています。</p>
+        <p class="more mt20">仕様書・成果物 →</p>
+      </a>
+      <a class="card-link card" href="poc.html">
+        <p class="num">02</p>
+        <h3>現場で実証する</h3>
+        <p>申請書の事前チェックから避難所運営まで、6つの行政業務でAIエージェントの有効性と仕様の適正を検証します。</p>
+        <p class="more mt20">実証事業 →</p>
+      </a>
+      <a class="card-link card" href="activity.html">
+        <p class="num">03</p>
+        <h3>つなぐ仕組みを検討する</h3>
+        <p>カタログサービス、MCPサーバー（AIと外部データをつなぐ接続方式）、認証、持続可能な運用モデルを官民で議論しています。</p>
+        <p class="more mt20">活動・ロードマップ →</p>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- marquee（装飾） -->
+<div class="marquee" aria-hidden="true">
+  <div class="mq-track">
+    <div class="mq-half">
+      <span>AIが迷わない行政をつくる。</span><i>◆</i>
+      <span>PUBLIC AI KNOWLEDGE BASE</span><i>◆</i>
+      <span>ナレッジを、社会の共有財産へ。</span><i>◆</i>
+      <span>SHARED DATA ECOSYSTEM</span><i>◆</i>
+      <span>METADATA 128 ITEMS</span><i>◆</i>
+      <span>6 USE CASES</span><i>◆</i>
+    </div>
+    <div class="mq-half">
+      <span>AIが迷わない行政をつくる。</span><i>◆</i>
+      <span>PUBLIC AI KNOWLEDGE BASE</span><i>◆</i>
+      <span>ナレッジを、社会の共有財産へ。</span><i>◆</i>
+      <span>SHARED DATA ECOSYSTEM</span><i>◆</i>
+      <span>METADATA 128 ITEMS</span><i>◆</i>
+      <span>6 USE CASES</span><i>◆</i>
+    </div>
+  </div>
+</div>
+
+<!-- numbers -->
+<section class="section band on-dark no-rule">
+  <div class="wrap">
+    <div class="sec-head split rv">
+      <div>
+        <p class="kicker">03 — NUMBERS</p>
+        <h2>数字で見る研究会</h2>
+      </div>
+      <p class="lead" style="margin:0;font-family:var(--mono);font-size:.72rem;letter-spacing:.18em">AS OF 2026.07.31</p>
+    </div>
+    <div class="grid c4 rv" style="border-color:rgba(255,255,255,.2)">
+      <div class="stat" style="border-color:rgba(255,255,255,.2)">
+        <p class="num" style="color:var(--gold-lt)">MEMBERS</p>
+        <p class="v" style="color:#fff">43<small>会員</small></p>
+        <p style="color:#B9C5DC">企業・団体33、自治体3、有識者7が参加（2026年7月31日現在）</p>
+      </div>
+      <div class="stat" style="border-color:rgba(255,255,255,.2)">
+        <p class="num" style="color:var(--gold-lt)">SPECIFICATION</p>
+        <p class="v" style="color:#fff">Ver.1.0</p>
+        <p style="color:#B9C5DC">本編＋別紙3点を2026年5月に策定（本サイトへの掲載は準備中）</p>
+      </div>
+      <div class="stat" style="border-color:rgba(255,255,255,.2)">
+        <p class="num" style="color:var(--gold-lt)">METADATA</p>
+        <p class="v" style="color:#fff">128<small>項目</small></p>
+        <p style="color:#B9C5DC">11グループに整理したメタデータ項目を定義</p>
+      </div>
+      <div class="stat" style="border-color:rgba(255,255,255,.2)">
+        <p class="num" style="color:var(--gold-lt)">USE CASES</p>
+        <p class="v" style="color:#fff">6<small>業務</small></p>
+        <p style="color:#B9C5DC">実証事業の想定ユースケース（A〜F）</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- news -->
+<section class="section">
+  <div class="wrap">
+    <div class="sec-head split rv">
+      <div>
+        <p class="kicker">04 — NEWS</p>
+        <h2>お知らせ</h2>
+      </div>
+      <a class="btn plain" href="news.html" style="padding:11px 22px;font-size:.86rem">お知らせ一覧 →</a>
+    </div>
+    <ul class="news-list rv">
+      <li><a href="news.html">
+        <time datetime="2026-07-15">2026.07.15</time><span class="tag teal">実証事業</span>
+        <span class="ttl">AIエージェント実証事業 協力自治体・システム開発事業者の募集を開始しました</span>
+        <span class="arw">→</span>
+      </a></li>
+      <li><a href="news.html">
+        <time datetime="2026-05-28">2026.05.28</time><span class="tag gold">仕様</span>
+        <span class="ttl">公共AIナレッジベース仕様書 Ver.1.0（本編・別紙1〜3）を策定しました</span>
+        <span class="arw">→</span>
+      </a></li>
+      <li><a href="news.html">
+        <time datetime="2026-05-28">2026.05.28</time><span class="tag">会議</span>
+        <span class="ttl">第3回 全体会議を開催しました（ハイブリッド開催）</span>
+        <span class="arw">→</span>
+      </a></li>
+      <li><a href="news.html">
+        <time datetime="2026-02-09">2026.02.09</time><span class="tag">研究会</span>
+        <span class="ttl">設立総会を開催し、設立規約および活動計画を承認しました</span>
+        <span class="arw">→</span>
+      </a></li>
+    </ul>
+  </div>
+</section>
+
+<!-- join band -->
+<section class="section band on-dark join-band no-rule">
+  <div class="grain" aria-hidden="true"></div>
+  <div class="wrap in">
+    <div class="rv" style="max-width:720px">
+      <p class="kicker">JOIN US</p>
+      <h2>ナレッジを整えることから、<br>はじめませんか。</h2>
+      <p class="lead">趣旨に賛同いただける企業・自治体・団体・有識者の参加をお待ちしています。会費は当面無料です。</p>
+      <div class="hero-cta">
+        <a class="btn on-navy" href="join.html">参加のご案内を見る</a>
+        <a class="btn on-navy plain" href="contact.html">問い合わせる</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+<footer class="site-foot">
+  <div class="foot-in">
+    <div class="foot-brand">
+      <div class="foot-logo"><svg class="mark" viewBox="0 0 200 222" aria-hidden="true" focusable="false">
+  <rect x="0" y="0" width="60" height="200" fill="#FFFFFF"/>
+  <rect x="74" y="0" width="126" height="38" fill="#FFFFFF"/>
+  <rect x="74" y="66" width="126" height="40" fill="#FFFFFF"/>
+  <path d="M74 130 L162 182 L162 200 L74 200 Z" fill="#FFFFFF"/>
+  <rect x="0" y="212" width="200" height="10" fill="#B8893E"/>
+</svg>
+        <span class="foot-logo-tx"><span class="t1">公共AIナレッジ研究会</span><span class="t2">PUBLIC AI KNOWLEDGE CONSORTIUM</span></span></div>
+      <p>公共分野における、生成AI・AIエージェントのための公共ナレッジベース・カタログサービスの構築に向けた官民のコンソーシアム。</p>
+      <p><a href="mailto:info@trustedfor.ai">info@trustedfor.ai</a></p>
+    </div>
+    <nav aria-label="フッター 研究会">
+      <h4>研究会</h4>
+      <ul>
+        <li><a href="about.html">設立の趣旨</a></li>
+        <li><a href="members.html">体制・会員リスト</a></li>
+        <li><a href="rules.html">規約</a></li>
+        <li><a href="activity.html">活動・ロードマップ</a></li>
+      </ul>
+    </nav>
+    <nav aria-label="フッター ナレッジベース">
+      <h4>ナレッジベース</h4>
+      <ul>
+        <li><a href="knowledge-base.html">ナレッジベースとは</a></li>
+        <li><a href="knowledge-base.html#taxonomy">4階層とメタデータ</a></li>
+        <li><a href="spec.html">仕様書・成果物</a></li>
+        <li><a href="poc.html">実証事業</a></li>
+      </ul>
+    </nav>
+    <nav aria-label="フッター 参加・お問い合わせ">
+      <h4>参加・お問い合わせ</h4>
+      <ul>
+        <li><a href="join.html">参加のご案内</a></li>
+        <li><a href="contact.html">お問い合わせ</a></li>
+        <li><a href="news.html">お知らせ</a></li>
+        <li><a href="privacy.html">サイトポリシー（案）</a></li>
+      </ul>
+    </nav>
+  </div>
+  <p class="foot-note">本ページは検索エンジンへの登録を抑制するnoindex設定の確認用モックアップです。パスワード等のアクセス制限はありませんので、URLのお取り扱いにご注意ください。</p>
+  <div class="copyright">
+    <div class="in">
+      <span>© 2026 PUBLIC AI KNOWLEDGE CONSORTIUM 公共AIナレッジ研究会</span>
+      <span>DESIGN PROTOTYPE / PATTERN 2</span>
+    </div>
+  </div>
+</footer>
+<script src="assets/app.js"></script>
+<script src="../comment/comments.js?v=20260811c" data-thread="pattern2" data-label="デザイン案 パターン2（ブラッシュアップ版）" defer></script>
+</body>
+</html>

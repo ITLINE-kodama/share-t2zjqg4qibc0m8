@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>パターン7 メインビジュアル動画 検討アーカイブ｜公共AIナレッジ研究会</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700&amp;family=Roboto+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#1E3C90; --blue:#2C56C8; --ink:#221815; --red:#C22A22;
+  --mute:#657083; --line:rgba(34,24,21,.14);
+  --mono:'Roboto Mono',monospace;
+}
+*{box-sizing:border-box}
+body{margin:0;background:#F4F5F7;color:var(--ink);font-family:'Noto Sans JP',sans-serif;-webkit-font-smoothing:antialiased}
+.wrap{width:min(100%,1440px);margin:0 auto;padding:0 28px}
+
+/* ---- head ---- */
+.page-head{background:#fff;border-bottom:1px solid var(--line);padding:34px 0 26px}
+.page-head .eyebrow{margin:0 0 8px;color:var(--blue);font:700 .6rem var(--mono);letter-spacing:.18em}
+.page-head h1{margin:0 0 10px;font-size:1.6rem;letter-spacing:-.02em}
+.page-head p{margin:0;color:#465267;font-size:.88rem;line-height:1.9}
+.spec{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
+.spec span{border:1px solid var(--line);background:#FAFAFA;padding:6px 11px;font:600 .7rem var(--mono);color:#4B5568;letter-spacing:.04em}
+
+/* ---- controls ---- */
+.bar{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.94);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.bar .in{display:flex;flex-wrap:wrap;align-items:center;gap:10px;padding-top:12px;padding-bottom:12px}
+.bar strong{font:700 .62rem var(--mono);letter-spacing:.14em;color:var(--mute);margin-right:4px}
+.seg{display:inline-flex;border:1px solid var(--line);background:#fff}
+.seg button{appearance:none;border:0;background:transparent;padding:9px 16px;font:600 .78rem/1 'Noto Sans JP',sans-serif;color:#4B5568;cursor:pointer}
+.seg button+button{border-left:1px solid var(--line)}
+.seg button[aria-pressed="true"]{background:var(--navy);color:#fff}
+.bar .sp{flex:1}
+.bar .note{color:var(--mute);font-size:.74rem}
+
+/* ---- round divider ---- */
+.round{margin:34px 0 0;padding:18px 20px;border-left:5px solid var(--navy);background:#fff;border-top:1px solid var(--line);border-right:1px solid var(--line);border-bottom:1px solid var(--line)}
+.round h2{margin:0 0 6px;font-size:1.02rem;letter-spacing:-.01em}
+.round p{margin:0;color:#465267;font-size:.83rem;line-height:1.9}
+
+/* ---- candidate ---- */
+.cand{margin:26px 0 0;background:#fff;border:1px solid var(--line)}
+.cand-head{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;padding:16px 20px;border-bottom:1px solid var(--line);border-top:4px solid var(--navy)}
+.cand.rec .cand-head{border-top-color:var(--red)}
+.cand-head .tag{font:700 .58rem var(--mono);letter-spacing:.14em;color:#fff;background:var(--navy);padding:5px 9px}
+.cand.rec .cand-head .tag{background:var(--red)}
+.cand-head h2{margin:0;font-size:1.02rem;letter-spacing:-.01em}
+.cand-head .sub{color:var(--mute);font-size:.8rem}
+.cand-head .rec-badge{margin-left:auto;border:1px solid var(--red);color:var(--red);font:700 .62rem var(--mono);letter-spacing:.1em;padding:5px 10px}
+.cand.ng{opacity:.9}
+.cand.ng .cand-head{border-top-color:#8A8A8A}
+.cand.ng .cand-head .tag{background:#8A8A8A}
+.cand-head .rec-badge.ngb{border-color:#8A8A8A;color:#6C6C6C}
+.cand.ng .finding{background:#F6F6F6}
+
+/* stage */
+.stage{position:relative;background:#EFEFEE;overflow:hidden;aspect-ratio:16/9}
+.stage video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 49%;display:block}
+.stage .veil,.stage .frame{opacity:0;transition:opacity .25s;pointer-events:none}
+body[data-mode="site"] .stage .veil,body[data-mode="site"] .stage .frame{opacity:1}
+body[data-mode="site"] .stage .frame{pointer-events:auto}
+.stage .veil{position:absolute;inset:0;
+  background:linear-gradient(90deg,rgba(252,252,252,.99) 0%,rgba(252,252,252,.97) 24%,rgba(252,252,252,.82) 39%,rgba(252,252,252,.3) 65%,rgba(252,252,252,.16) 100%),
+             linear-gradient(180deg,rgba(255,255,255,.3),transparent 30%,rgba(255,255,255,0) 100%)}
+/* 左55%／右40%のガイド */
+.stage .guide{position:absolute;inset:0;opacity:0;transition:opacity .25s;pointer-events:none}
+body[data-guide="on"] .stage .guide{opacity:1}
+.stage .guide i{position:absolute;top:0;bottom:0;display:block}
+.stage .guide .g-left{left:0;width:55%;background:rgba(30,60,144,.10);border-right:2px dashed rgba(30,60,144,.55)}
+.stage .guide .g-right{right:0;width:40%;background:rgba(194,42,34,.08);border-left:2px dashed rgba(194,42,34,.5)}
+.stage .guide b{position:absolute;top:10px;font:700 .58rem var(--mono);letter-spacing:.1em;padding:4px 7px;background:rgba(255,255,255,.85)}
+.stage .guide .l-left{left:10px;color:var(--navy)}
+.stage .guide .l-right{right:10px;color:var(--red)}
+
+/* hero copy overlay（pattern6のトップと同じ文言） */
+.frame{position:absolute;inset:0;display:flex;align-items:center;padding:0 clamp(20px,3.4vw,46px)}
+.copy{max-width:52%}
+.copy .status{display:inline-block;margin:0 0 14px;padding:6px 12px;background:rgba(255,255,255,.62);border:1px solid var(--line);font-size:.72rem;color:#3B4657;backdrop-filter:blur(8px)}
+.copy .kicker{margin:0 0 8px;color:var(--blue);font:700 .62rem var(--mono);letter-spacing:.18em}
+.copy h3{margin:0 0 14px;color:var(--navy);font-size:clamp(1.5rem,2.5vw,2.5rem);line-height:1.25;letter-spacing:-.05em}
+.copy h3 span{position:relative;white-space:nowrap}
+.copy h3 span::after{content:"";position:absolute;z-index:-1;left:-.04em;right:-.04em;bottom:.06em;height:.22em;background:rgba(30,60,144,.26);transform:skewX(-14deg)}
+.copy p.lead{margin:0;max-width:32em;color:#465267;font-size:.8rem;line-height:1.95}
+.copy .cta{display:flex;gap:10px;margin-top:18px}
+.copy .cta a{display:inline-flex;align-items:center;gap:18px;padding:10px 16px;font-size:.78rem;text-decoration:none}
+.copy .cta .solid{background:var(--navy);color:#fff}
+.copy .cta .link{border-bottom:1px solid var(--navy);color:var(--navy)}
+
+/* meta */
+.cand-body{display:grid;grid-template-columns:1.15fr .85fr;gap:0;border-top:1px solid var(--line)}
+.timeline{padding:18px 20px}
+.timeline h4,.check h4{margin:0 0 12px;font:700 .58rem var(--mono);letter-spacing:.14em;color:var(--mute)}
+.timeline ol{margin:0;padding:0;list-style:none}
+.timeline li{display:grid;grid-template-columns:74px 1fr;gap:12px;padding:8px 0;border-bottom:1px dotted var(--line);font-size:.8rem;line-height:1.75}
+.timeline li:last-child{border-bottom:0}
+.timeline li b{color:var(--blue);font:600 .72rem var(--mono)}
+.check{padding:18px 20px;border-left:1px solid var(--line);background:#FCFCFB}
+.check ul{margin:0;padding:0;list-style:none}
+.check li{display:flex;gap:10px;align-items:flex-start;padding:7px 0;font-size:.79rem;line-height:1.7}
+.check input{margin-top:.28em;accent-color:var(--navy);width:15px;height:15px}
+.finding{margin:0;padding:14px 20px;border-top:1px solid var(--line);background:#FFFCF7;font-size:.79rem;line-height:1.85;color:#4B4238}
+.finding b{color:var(--ink)}
+.finding.ok{background:#F7FBF8}
+.dl{display:flex;gap:10px;flex-wrap:wrap;padding:14px 20px 18px}
+.dl a{font:600 .72rem var(--mono);color:var(--navy);text-decoration:none;border:1px solid var(--line);padding:7px 11px;background:#fff}
+.dl a:hover{border-color:var(--navy)}
+
+/* criteria */
+.criteria{margin:32px 0 60px;background:#fff;border:1px solid var(--line);border-top:4px solid var(--navy);padding:22px 24px}
+.criteria h2{margin:0 0 6px;font-size:1rem}
+.criteria p{margin:0 0 14px;color:#465267;font-size:.82rem;line-height:1.9}
+.criteria ol{margin:0;padding-left:1.3em;color:#3B4657;font-size:.82rem;line-height:2}
+.criteria .ng{margin-top:16px;border-top:1px dotted var(--line);padding-top:14px;color:var(--mute);font-size:.78rem;line-height:1.9}
+@media (max-width:900px){
+  .cand-body{grid-template-columns:1fr}
+  .check{border-left:0;border-top:1px solid var(--line)}
+  .copy{max-width:70%}
+}
+</style>
+</head>
+<body data-mode="site" data-guide="off">
+
+<div class="page-head">
+  <div class="wrap">
+    <p class="eyebrow">PATTERN 7 / HERO MOTION — ARCHIVE</p>
+    <h1>メインビジュアル動画 A・B・C 比較</h1>
+    <p>現行ヒーロー画像（<code>hero-knowledge-network-v5.png</code>）を構図・材質・色・世界観の絶対基準とし、<b>開始フレームと終了フレームの両方に同じ静止画を固定</b>して18秒で生成 → 末尾1秒を先頭に1秒クロスディゾルブして<b>17.0秒の完全ループ</b>に仕上げています。3案とも構図は同一で、<b>動きだけ</b>が違います。</p>
+    <div class="spec">
+      <span>Seedance 2.5</span><span>16:9 / 1280×720 / 24fps</span><span>17.0秒</span><span>無音</span><span>シームレスループ（継ぎ目PSNR 40〜47dB）</span><span>カメラ固定</span><span>MP4 + WebM</span><span>検討資料アーカイブ</span>
+    </div>
+  </div>
+</div>
+
+<div class="bar">
+  <div class="wrap in">
+    <strong>表示</strong>
+    <span class="seg">
+      <button type="button" data-mode-btn="site" aria-pressed="true">サイト組込プレビュー</button>
+      <button type="button" data-mode-btn="raw" aria-pressed="false">素材のまま</button>
+    </span>
+    <strong>ガイド</strong>
+    <span class="seg">
+      <button type="button" data-guide-btn="off" aria-pressed="true">なし</button>
+      <button type="button" data-guide-btn="on" aria-pressed="false">左55%／右40%</button>
+    </span>
+    <span class="sp"></span>
+    <span class="note">各動画は同時ループ再生中。継ぎ目は 0 秒に戻る瞬間を見てください。</span>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <section class="round">
+    <h2>第2ラウンド：A案ベースで「もっとスピード感・躍動」＋「周りの紙にも光」</h2>
+    <p>A案の構図・材質・カメラ固定はそのままに、<b>速度と光の量だけ</b>を3段階で振りました。紙の光は「紙の表面を滑る反射光」に限定し、<b>縁の発光・模様・文字・紙の移動</b>を禁止。さらに<b>左55%に置かれた紙は消灯のまま</b>と指定しています。</p>
+  </section>
+
+  <!-- A4 -->
+  <section class="cand rec">
+    <div class="cand-head">
+      <span class="tag">A4</span>
+      <h2>躍動・全面ストリーム（速度最大／紙がしっかり光る）</h2>
+      <span class="sub">黒線を光の粒が常時流れ、右側の紙が青白く発光する</span>
+      <span class="rec-badge">今回の推奨</span>
+    </div>
+    <div class="stage">
+      <video poster="poster_A4.png" autoplay loop muted playsinline preload="auto"><source src="A4_躍動_全面ストリーム.webm" type="video/webm"><source src="A4_躍動_全面ストリーム.mp4" type="video/mp4"></video>
+      <div class="veil"></div>
+      <div class="guide"><i class="g-left"></i><i class="g-right"></i><b class="l-left">左55% 文字領域</b><b class="l-right">右40% 動き</b></div>
+      <div class="frame">
+        <div class="copy">
+          <span class="status">企業・自治体・有識者が参画する官民研究会</span>
+          <p class="kicker">TRUSTED FOR AI</p>
+          <h3>信頼できる公共情報を、<br><span>AIが使える知識へ。</span></h3>
+          <p class="lead">行政の「正確・最新・正統な」情報を、AIが安全に参照できる形へ。共通仕様と持続可能な運用モデルを、官民共同で研究しています。</p>
+          <div class="cta"><a class="solid" href="#">研究会について <span>→</span></a><a class="link" href="#">仕様書・成果物を見る <span>↗</span></a></div>
+        </div>
+      </div>
+    </div>
+    <div class="cand-body">
+      <div class="timeline">
+        <h4>TIMELINE</h4>
+        <ol>
+          <li><b>00–04s</b>1フレーム目から赤い中核が放出中。光の粒が右側の全線を0.5秒／区間の速さで流れる。</li>
+          <li><b>04–09s</b>粒がピンで分岐して流れ続け、その下の紙が青白い反射光で順に洗われる（常時数枚が点灯）。</li>
+          <li><b>09–14s</b>流量が最大で維持。中核は2秒に1回だけ脈打つ。背景のボケと光面も流れに合わせて動く。</li>
+          <li><b>14–18s</b>流れが細り、紙の光が1枚ずつ引いて、開始フレームの明るさ・構図へ収束。</li>
+        </ol>
+      </div>
+      <div class="check">
+        <h4>採用基準チェック</h4>
+        <ul>
+          <li><input type="checkbox"><span>左側の文字が常に読みやすい</span></li>
+          <li><input type="checkbox"><span>動きが目立ちすぎない</span></li>
+          <li><input type="checkbox"><span>現在の静止画と同じサイトに見える</span></li>
+          <li><input type="checkbox"><span>ループの継ぎ目が分からない</span></li>
+          <li><input type="checkbox"><span>ピン・線・紙に形状崩れやちらつきがない</span></li>
+        </ul>
+      </div>
+    </div>
+    <p class="finding ok"><b>制作側の所見</b>：ご要望の「スピード感」「周りの紙にも光」を最もはっきり満たす。ネットワーク・ピン・線・カメラは崩れず、左の文字にも一切干渉しない。ループ継ぎ目 PSNR 45.3dB。<b>気になる点は2つ</b>：①背景の白がA案よりわずかにグレー寄り（サイトの白ベールを重ねるとほぼ気にならない） ②右側の紙の枚数・形が途中で少し入れ替わる（元画像の散らばりと厳密には一致しない）。<b>この2点が許容できるならA4で確定できます。</b></p>
+    <div class="dl"><a href="A4_躍動_全面ストリーム.mp4" download>MP4をダウンロード</a><a href="A4_躍動_全面ストリーム.webm" download>WebM</a></div>
+  </section>
+
+  <!-- A3 -->
+  <section class="cand">
+    <div class="cand-head">
+      <span class="tag">A3</span>
+      <h2>躍動・波状点灯（速度中／紙の光は控えめ）</h2>
+      <span class="sub">A案の白さを最も保ったまま、テンポだけ上げた版</span>
+    </div>
+    <div class="stage">
+      <video poster="poster_A3.png" autoplay loop muted playsinline preload="auto"><source src="A3_躍動_波状点灯.webm" type="video/webm"><source src="A3_躍動_波状点灯.mp4" type="video/mp4"></video>
+      <div class="veil"></div>
+      <div class="guide"><i class="g-left"></i><i class="g-right"></i><b class="l-left">左55% 文字領域</b><b class="l-right">右40% 動き</b></div>
+      <div class="frame">
+        <div class="copy">
+          <span class="status">企業・自治体・有識者が参画する官民研究会</span>
+          <p class="kicker">TRUSTED FOR AI</p>
+          <h3>信頼できる公共情報を、<br><span>AIが使える知識へ。</span></h3>
+          <p class="lead">行政の「正確・最新・正統な」情報を、AIが安全に参照できる形へ。共通仕様と持続可能な運用モデルを、官民共同で研究しています。</p>
+          <div class="cta"><a class="solid" href="#">研究会について <span>→</span></a><a class="link" href="#">仕様書・成果物を見る <span>↗</span></a></div>
+        </div>
+      </div>
+    </div>
+    <div class="cand-body">
+      <div class="timeline">
+        <h4>TIMELINE</h4>
+        <ol>
+          <li><b>00–04s</b>2本のパルスが0.8秒／区間で飛び出し、当たったピンが0.3秒光り、真下の紙が一瞬光る。</li>
+          <li><b>04–09s</b>5〜6本が重なって走り、右半分の紙が波のように順に点灯する。</li>
+          <li><b>09–14s</b>最も賑やかな状態を維持。背景のボケと光面もリズムに合わせて漂う。</li>
+          <li><b>14–18s</b>パルスが1本ずつ減り、紙とピンの光が引いて開始フレームへ収束。</li>
+        </ol>
+      </div>
+      <div class="check">
+        <h4>採用基準チェック</h4>
+        <ul>
+          <li><input type="checkbox"><span>左側の文字が常に読みやすい</span></li>
+          <li><input type="checkbox"><span>動きが目立ちすぎない</span></li>
+          <li><input type="checkbox"><span>現在の静止画と同じサイトに見える</span></li>
+          <li><input type="checkbox"><span>ループの継ぎ目が分からない</span></li>
+          <li><input type="checkbox"><span>ピン・線・紙に形状崩れやちらつきがない</span></li>
+        </ul>
+      </div>
+    </div>
+    <p class="finding"><b>制作側の所見</b>：<b>白の明るさは3本中で最もA案に近い</b>（＝現行サイトに一番馴染む）。ループ継ぎ目 PSNR 46.2dB。ただし紙の光がA4よりかなり控えめで、「周りの紙も光ってほしい」という意図は半分ほどしか出ていない。6秒付近に一瞬だけ薄紫の閃光が入る。<b>「躍動は欲しいが白さを崩したくない」ならこちら。</b></p>
+    <div class="dl"><a href="A3_躍動_波状点灯.mp4" download>MP4をダウンロード</a><a href="A3_躍動_波状点灯.webm" download>WebM</a></div>
+  </section>
+
+  <!-- A2 -->
+  <section class="cand ng">
+    <div class="cand-head">
+      <span class="tag">A2</span>
+      <h2>躍動・控えめ（不採用）</h2>
+      <span class="sub">最も穏やかな指示だったが、世界観が崩れた</span>
+      <span class="rec-badge ngb">不採用</span>
+    </div>
+    <div class="stage">
+      <video poster="poster_A2.png" autoplay loop muted playsinline preload="auto"><source src="A2_躍動_控えめ.mp4" type="video/mp4"></video>
+      <div class="veil"></div>
+      <div class="guide"><i class="g-left"></i><i class="g-right"></i><b class="l-left">左55% 文字領域</b><b class="l-right">右40% 動き</b></div>
+      <div class="frame">
+        <div class="copy">
+          <span class="status">企業・自治体・有識者が参画する官民研究会</span>
+          <p class="kicker">TRUSTED FOR AI</p>
+          <h3>信頼できる公共情報を、<br><span>AIが使える知識へ。</span></h3>
+          <p class="lead">行政の「正確・最新・正統な」情報を、AIが安全に参照できる形へ。共通仕様と持続可能な運用モデルを、官民共同で研究しています。</p>
+          <div class="cta"><a class="solid" href="#">研究会について <span>→</span></a><a class="link" href="#">仕様書・成果物を見る <span>↗</span></a></div>
+        </div>
+      </div>
+    </div>
+    <p class="finding"><b>制作側の所見</b>：<b>不採用。</b>指示は3本の中で最も穏やかだったのに、途中から画面全体がグレーに沈み、紙が青白い板のように浮き上がって「白いマット紙」に見えなくなった。ループ継ぎ目も PSNR 36.9dB と最も悪い。記録として残しています。</p>
+    <div class="dl"><a href="A2_躍動_控えめ.mp4" download>MP4（参考）</a></div>
+  </section>
+
+  <section class="round">
+    <h2>第1ラウンド：動きの方向性 A / B / C</h2>
+    <p>最初に比較した3案です。A案がベースとして採用され、上の第2ラウンドにつながっています。</p>
+  </section>
+
+  <!-- A -->
+  <section class="cand">
+    <div class="cand-head">
+      <span class="tag">A</span>
+      <h2>青い情報光が流れる（最も静かな案）</h2>
+      <span class="sub">紙・ピン・線は一切動かず、光だけが動く</span>
+      <span class="rec-badge">第1Rの推奨・A2〜A4のベース</span>
+    </div>
+    <div class="stage">
+      <video poster="poster_A.png" autoplay loop muted playsinline preload="auto"><source src="A_青い情報光.webm" type="video/webm"><source src="A_青い情報光.mp4" type="video/mp4"></video>
+      <div class="veil"></div>
+      <div class="guide"><i class="g-left"></i><i class="g-right"></i><b class="l-left">左55% 文字領域</b><b class="l-right">右40% 動き</b></div>
+      <div class="frame">
+        <div class="copy">
+          <span class="status">企業・自治体・有識者が参画する官民研究会</span>
+          <p class="kicker">TRUSTED FOR AI</p>
+          <h3>信頼できる公共情報を、<br><span>AIが使える知識へ。</span></h3>
+          <p class="lead">行政の「正確・最新・正統な」情報を、AIが安全に参照できる形へ。共通仕様と持続可能な運用モデルを、官民共同で研究しています。</p>
+          <div class="cta"><a class="solid" href="#">研究会について <span>→</span></a><a class="link" href="#">仕様書・成果物を見る <span>↗</span></a></div>
+        </div>
+      </div>
+    </div>
+    <div class="cand-body">
+      <div class="timeline">
+        <h4>TIMELINE</h4>
+        <ol>
+          <li><b>00–04s</b>静止。赤い中核の中に淡い青の点が生まれ、1本の線を右へ滑り出す。</li>
+          <li><b>04–09s</b>青いパルスが2〜3本の黒線をゆっくり伝い、届いたピン頭が約1秒だけ淡く青く光って消える。</li>
+          <li><b>09–14s</b>パルスが右端のピンで静かに消散。背景の淡い青い光面が数ピクセルだけ流れる。</li>
+          <li><b>14–18s</b>青がすべて消え、赤い中核が元の穏やかな光へ。明るさ・構図とも開始フレームへ収束。</li>
+        </ol>
+      </div>
+      <div class="check">
+        <h4>採用基準チェック</h4>
+        <ul>
+          <li><input type="checkbox"><span>左側の文字が常に読みやすい</span></li>
+          <li><input type="checkbox"><span>動きが目立ちすぎない</span></li>
+          <li><input type="checkbox"><span>現在の静止画と同じサイトに見える</span></li>
+          <li><input type="checkbox"><span>ループの継ぎ目が分からない</span></li>
+          <li><input type="checkbox"><span>ピン・線・紙に形状崩れやちらつきがない</span></li>
+        </ul>
+      </div>
+    </div>
+    <p class="finding ok"><b>制作側の所見</b>：紙・ピン・線が最後まで一切動かず、光だけが右側を流れる。フラッシュ・粒子・形状崩れなし。ループ継ぎ目 PSNR 47.1dB（全案中で最良）。左の見出し・リード・ボタンに一度も干渉しない。<b>最も静かで安全な版</b>。躍動が欲しい場合は上のA4／A3をご覧ください。</p>
+    <div class="dl"><a href="A_青い情報光.mp4" download>MP4をダウンロード</a><a href="A_青い情報光.webm" download>WebM</a></div>
+  </section>
+
+  <!-- B -->
+  <section class="cand">
+    <div class="cand-head">
+      <span class="tag">B</span>
+      <h2>紙が整理されながらネットワークが形成される</h2>
+      <span class="sub">紙の整列 → 線の描画 → 元の散らばりへ戻る</span>
+    </div>
+    <div class="stage">
+      <video poster="poster_B.png" autoplay loop muted playsinline preload="auto"><source src="B_紙の整列とネットワーク形成.webm" type="video/webm"><source src="B_紙の整列とネットワーク形成.mp4" type="video/mp4"></video>
+      <div class="veil"></div>
+      <div class="guide"><i class="g-left"></i><i class="g-right"></i><b class="l-left">左55% 文字領域</b><b class="l-right">右40% 動き</b></div>
+      <div class="frame">
+        <div class="copy">
+          <span class="status">企業・自治体・有識者が参画する官民研究会</span>
+          <p class="kicker">TRUSTED FOR AI</p>
+          <h3>信頼できる公共情報を、<br><span>AIが使える知識へ。</span></h3>
+          <p class="lead">行政の「正確・最新・正統な」情報を、AIが安全に参照できる形へ。共通仕様と持続可能な運用モデルを、官民共同で研究しています。</p>
+          <div class="cta"><a class="solid" href="#">研究会について <span>→</span></a><a class="link" href="#">仕様書・成果物を見る <span>↗</span></a></div>
+        </div>
+      </div>
+    </div>
+    <div class="cand-body">
+      <div class="timeline">
+        <h4>TIMELINE</h4>
+        <ol>
+          <li><b>00–04s</b>右側の白い紙が数度だけゆっくり回転・滑走し、整った並びへ寄っていく。ピンは静止。</li>
+          <li><b>04–09s</b>黒い線がピン頭からピン頭へ順に描かれ、同じ多角形ネットワークを描き直す。線の先端に淡い青。</li>
+          <li><b>09–14s</b>ネットワーク完成。赤い中核から右へ青いパルスが1回だけ走る。紙は整列を保つ。</li>
+          <li><b>14–18s</b>青が消え、紙が元の散らばった角度へゆっくり戻り、開始フレームの状態と明るさへ収束。</li>
+        </ol>
+      </div>
+      <div class="check">
+        <h4>採用基準チェック</h4>
+        <ul>
+          <li><input type="checkbox"><span>左側の文字が常に読みやすい</span></li>
+          <li><input type="checkbox"><span>動きが目立ちすぎない</span></li>
+          <li><input type="checkbox"><span>現在の静止画と同じサイトに見える</span></li>
+          <li><input type="checkbox"><span>ループの継ぎ目が分からない</span></li>
+          <li><input type="checkbox"><span>ピン・線・紙に形状崩れやちらつきがない</span></li>
+        </ul>
+      </div>
+    </div>
+    <p class="finding"><b>制作側の所見</b>：紙の移動が想定より大きく、右下の紙が1枚めくれるように動く区間がある。10秒付近で中核に白い閃光が一瞬入り、6〜8秒に水色のフレアが強めに出る（「強いフラッシュ禁止」「動きが目立ちすぎない」に対してやや過剰）。ループ継ぎ目 PSNR 40.8dB（3案中で最も紙の位置差が残る）。<b>採用する場合は動きの振幅を半分に落とした再生成が必要です。</b></p>
+    <div class="dl"><a href="B_紙の整列とネットワーク形成.mp4" download>MP4をダウンロード</a><a href="B_紙の整列とネットワーク形成.webm" download>WebM</a></div>
+  </section>
+
+  <!-- C -->
+  <section class="cand">
+    <div class="cand-head">
+      <span class="tag">C</span>
+      <h2>赤い中核から信頼の光が広がる</h2>
+      <span class="sub">ELSIの赤を起点に、青が応答する</span>
+    </div>
+    <div class="stage">
+      <video poster="poster_C.png" autoplay loop muted playsinline preload="auto"><source src="C_赤い中核から広がる光.webm" type="video/webm"><source src="C_赤い中核から広がる光.mp4" type="video/mp4"></video>
+      <div class="veil"></div>
+      <div class="guide"><i class="g-left"></i><i class="g-right"></i><b class="l-left">左55% 文字領域</b><b class="l-right">右40% 動き</b></div>
+      <div class="frame">
+        <div class="copy">
+          <span class="status">企業・自治体・有識者が参画する官民研究会</span>
+          <p class="kicker">TRUSTED FOR AI</p>
+          <h3>信頼できる公共情報を、<br><span>AIが使える知識へ。</span></h3>
+          <p class="lead">行政の「正確・最新・正統な」情報を、AIが安全に参照できる形へ。共通仕様と持続可能な運用モデルを、官民共同で研究しています。</p>
+          <div class="cta"><a class="solid" href="#">研究会について <span>→</span></a><a class="link" href="#">仕様書・成果物を見る <span>↗</span></a></div>
+        </div>
+      </div>
+    </div>
+    <div class="cand-body">
+      <div class="timeline">
+        <h4>TIMELINE</h4>
+        <ol>
+          <li><b>00–04s</b>静止。中核の赤がゆっくり強まり、抑制された赤のハローが1回だけ呼吸する。</li>
+          <li><b>04–09s</b>やわらかく細い光の環が、紙面と黒線に沿って右方向へ静かに広がる。紙・ピンは動かない。</li>
+          <li><b>09–14s</b>環が通過したピンが淡い青で応答し、約1秒で消える。環は右端に届く前に薄れて消散。</li>
+          <li><b>14–18s</b>青の応答が消え、赤い中核が元の穏やかな光量へ戻り、開始フレームの明るさ・構図へ収束。</li>
+        </ol>
+      </div>
+      <div class="check">
+        <h4>採用基準チェック</h4>
+        <ul>
+          <li><input type="checkbox"><span>左側の文字が常に読みやすい</span></li>
+          <li><input type="checkbox"><span>動きが目立ちすぎない</span></li>
+          <li><input type="checkbox"><span>現在の静止画と同じサイトに見える</span></li>
+          <li><input type="checkbox"><span>ループの継ぎ目が分からない</span></li>
+          <li><input type="checkbox"><span>ピン・線・紙に形状崩れやちらつきがない</span></li>
+        </ul>
+      </div>
+    </div>
+    <p class="finding"><b>制作側の所見</b>：赤い環が指示より大きく広がり、8秒付近で画面のほぼ全幅（左の文字領域の下まで）を覆う。可読性は白ベールで保たれるが、「主要な動きは右40%」からは外れる。生成直後の先頭では赤い中核が一度暗く落ちるため、ループ処理で先頭を末尾側の明るいフレームに寄せて補正済み（継ぎ目 PSNR 46.1dB）。<b>赤を主役にするなら、環の到達範囲を右半分までに制限して再生成するのが前提です。</b></p>
+    <div class="dl"><a href="C_赤い中核から広がる光.mp4" download>MP4をダウンロード</a><a href="C_赤い中核から広がる光.webm" download>WebM</a></div>
+  </section>
+
+  <section class="criteria">
+    <h2>採用基準（この順で判断）</h2>
+    <p>現時点の推奨は <b>A4</b>（躍動・全面ストリーム）。「スピード感」「周りの紙にも光」というご要望を、構図・ピン・線・カメラを崩さずに満たせている唯一の版です。白さを最優先するなら <b>A3</b>、動きを最小にするなら <b>A</b>。</p>
+    <ol>
+      <li>左側の文字が常に読みやすい</li>
+      <li>動きが目立ちすぎない</li>
+      <li>現在の静止画と同じサイトに見える</li>
+      <li>ループの継ぎ目が分からない</li>
+      <li>ピン・線・紙に形状崩れやちらつきがない</li>
+    </ol>
+    <div class="ng">
+      <b>禁止事項（プロンプトで明示的に除外）</b>：人物／ロボット／未来都市／ネオン／ホログラムUI／文字・ロゴ・数字／地図・国旗／強いフラッシュ／過剰な粒子／ランダムな物体生成。<br>
+      全案とも <b>人物・ロボット・未来都市・ネオン・ホログラムUI・文字・ロゴ・数字・地図・国旗の混入はゼロ</b>。B案の白い閃光とC案の赤い環の広がりだけが、上記の「強いフラッシュ」「動きは右40%」に対して超過しています。<br><br>
+      <b>実装方針</b>：MP4（H.264）＋WebM（VP9）を用意し、<code>poster</code> に各案の1フレーム目を書き出した静止画を指定。<code>prefers-reduced-motion: reduce</code> の環境では <code>&lt;video&gt;</code> を隠して現行のヒーロー静止画へフォールバックします。<br>
+      <b>ループ処理</b>：生成は18.04秒。末尾1秒を先頭に1秒クロスディゾルブして17.04秒の完全ループに変換しています。
+    </div>
+  </section>
+
+</div>
+
+<script>
+(function(){
+  var body=document.body;
+  document.querySelectorAll('[data-mode-btn]').forEach(function(b){
+    b.addEventListener('click',function(){
+      body.dataset.mode=b.dataset.modeBtn;
+      document.querySelectorAll('[data-mode-btn]').forEach(function(x){
+        x.setAttribute('aria-pressed', String(x===b));
+      });
+    });
+  });
+  document.querySelectorAll('[data-guide-btn]').forEach(function(b){
+    b.addEventListener('click',function(){
+      body.dataset.guide=b.dataset.guideBtn;
+      document.querySelectorAll('[data-guide-btn]').forEach(function(x){
+        x.setAttribute('aria-pressed', String(x===b));
+      });
+    });
+  });
+  var vs=[].slice.call(document.querySelectorAll('.stage video'));
+  vs.forEach(function(v){ v.addEventListener('loadedmetadata',function(){ v.currentTime=0; v.play().catch(function(){}); }); });
+})();
+</script>
+<script src="../../comment/comments.js?v=20260811c" data-thread="pattern7-mv" data-label="パターン7 メインビジュアル動画（アーカイブ）" defer></script>
+</body>
+</html>

@@ -23,9 +23,8 @@
   var ENDPOINT = 'https://script.google.com/macros/s/AKfycbzat8ImRRKXemKYprQqgtVkSVn6AVZRyJwIbLiMtQjdoX5Pk2L3F76S4dmd8u7ZlTB9/exec';
 
   // 添付ファイル機能のON/OFF。
-  // バックエンド（Apps Script）側の不具合を調査中のため、いまはOFFにしている。
-  // 解決したら true に戻す。
-  var ENABLE_ATTACH = false;
+  // 2026-08-11 復活。原因はGAS側でDrive APIが有効化されていなかったこと（403）。
+  var ENABLE_ATTACH = true;
 
   var THREAD = (SCRIPT.getAttribute('data-thread') || 'index').trim();
   var LABEL  = (SCRIPT.getAttribute('data-label') || document.title || '').trim().slice(0, 120);

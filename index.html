@@ -1,234 +1,29 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ja">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex, nofollow">
-<title>公共AIナレッジ研究会 公式Webサイト｜ご確認用資料一覧（株式会社ITLINE）</title>
+<meta http-equiv="refresh" content="0; url=https://itline-pf.com/share-t2zjqg4qibc0m8/">
+<link rel="canonical" href="https://itline-pf.com/share-t2zjqg4qibc0m8/">
+<title>移転しました｜公共AIナレッジ研究会 ご確認用資料</title>
 <style>
-:root{
-  --blue:#003399; --blue-d:#00246E; --blue-dd:#001A52; --ink:#1F2633; --mute:#5B6577; --bord:#E3E7EE;
-  --mint:#6BE2DE; --mintbg:#EFFBF9; --mintbd:#BCEDE6; --mintdk:#1F8F84;
-  --amber:#96660A; --amberbg:#FFF6E5; --amberbd:#F2D9A6;
-  --card:#F7F9FB;
-  --grad:linear-gradient(90deg,#6BE2DE 0%,#6AECD4 55%,#79EDC0 100%);
-  --font:"Yu Gothic UI","YuGothic UI","Yu Gothic","Meiryo",system-ui,sans-serif;
-}
-*{box-sizing:border-box;margin:0;padding:0}
-body{font-family:var(--font);color:var(--ink);background:#F4F7FA;font-size:16px;line-height:1.85}
-img{max-width:100%}
-a{color:inherit}
-.wrap{max-width:1080px;margin:0 auto;padding:0 24px}
-.gradbar{height:6px;background:var(--grad)}
-
-/* ---- top bar ---- */
-.tbar{background:#fff;border-bottom:1px solid var(--bord)}
-.tbar .wrap{display:flex;align-items:center;justify-content:space-between;gap:14px;padding-top:12px;padding-bottom:12px}
-.tbar img{height:34px;display:block}
-.tbar span{font-size:12px;color:var(--mute)}
-
-/* ---- hero ---- */
-.hero{color:#fff;background:linear-gradient(128deg,var(--blue) 0%,var(--blue-d) 55%,var(--blue-dd) 100%);position:relative;overflow:hidden}
-.hero::after{content:"";position:absolute;right:-140px;top:-140px;width:420px;height:420px;border-radius:50%;background:radial-gradient(circle,rgba(107,226,222,.18),transparent 70%)}
-.hero .wrap{position:relative;z-index:1;padding-top:52px;padding-bottom:52px}
-.kicker{font-size:12.5px;letter-spacing:.34em;font-weight:700;color:#9FD9FF;margin-bottom:18px}
-.hero h1{font-size:clamp(26px,4.2vw,40px);font-weight:700;line-height:1.5;letter-spacing:.01em}
-.hero .sub{margin-top:16px;font-size:14.5px;color:#D6E2F7}
-.chips{display:flex;flex-wrap:wrap;gap:12px;margin-top:26px}
-.chip{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.25);border-radius:999px;padding:8px 20px;font-size:13.5px;font-weight:700}
-.chip b{color:#8FF3E6;font-weight:700}
-
-/* ---- sections ---- */
-main{padding:46px 0 20px}
-.shead{display:flex;align-items:baseline;gap:14px;margin:0 0 20px}
-.shead h2{font-size:21px;font-weight:700;color:var(--ink)}
-.shead .en{font-size:11.5px;letter-spacing:.28em;font-weight:700;color:var(--blue)}
-.shead .cnt{margin-left:auto;font-size:12.5px;color:var(--mute)}
-.gap{height:44px}
-
-/* ---- featured preview card ---- */
-.feature{display:grid;grid-template-columns:1.15fr 1fr;background:#fff;border:2px solid var(--blue);border-radius:14px;overflow:hidden;box-shadow:0 8px 30px rgba(0,40,110,.12);text-decoration:none;transition:transform .15s,box-shadow .15s}
-a.feature:hover{transform:translateY(-3px);box-shadow:0 14px 38px rgba(0,40,110,.18)}
-.feature .shot{position:relative;background:var(--card);min-height:280px}
-.feature .shot img{width:100%;height:100%;object-fit:cover;object-position:top;display:block}
-.feature .fbadge{position:absolute;left:16px;top:16px;background:#C22A22;color:#fff;font-size:12.5px;font-weight:700;border-radius:6px;padding:5px 14px;letter-spacing:.06em}
-.feature .body{padding:28px 30px;display:flex;flex-direction:column;justify-content:center}
-.feature h3{font-size:22px;color:var(--blue);line-height:1.5}
-.feature h3 small{font-size:11.5px;letter-spacing:.2em;color:var(--mintdk);display:block;margin-bottom:6px}
-.feature .url{margin-top:10px;font-size:14px;font-weight:700;color:var(--ink);background:var(--card);border:1px solid var(--bord);border-radius:6px;padding:8px 14px;word-break:break-all}
-.feature p{font-size:13.5px;color:var(--mute);margin-top:12px}
-.feature .go{margin-top:16px;font-size:14.5px;font-weight:700;color:var(--blue)}
-
-/* ---- comment guide ---- */
-.cguide{display:grid;grid-template-columns:56px 1fr;gap:18px;align-items:center;background:var(--mintbg);border:1px solid var(--mintbd);border-radius:12px;padding:20px 24px;margin-top:22px}
-.cguide .ic{width:56px;height:56px;border-radius:50%;display:grid;place-items:center;font-size:26px;background:#fff;border:1px solid var(--mintbd)}
-.cguide b{font-size:16px;color:var(--mintdk)}
-.cguide p{font-size:13.5px;color:#2A6B62;margin-top:4px}
-
-/* ---- status table ---- */
-.status{background:#fff;border:1px solid var(--bord);border-radius:12px;overflow:hidden;box-shadow:0 3px 16px rgba(20,40,80,.06)}
-.status .shd{background:var(--card);border-bottom:1px solid var(--bord);padding:16px 24px;font-size:13.5px;color:var(--mute)}
-.status .shd b{color:var(--blue)}
-.tscroll{overflow-x:auto}
-table{width:100%;border-collapse:collapse;font-size:14px;min-width:640px}
-th{background:#FAFBFD;text-align:left;font-size:12.5px;color:var(--mute);letter-spacing:.06em;padding:12px 18px;border-bottom:1px solid var(--bord);white-space:nowrap}
-td{padding:13px 18px;border-bottom:1px solid var(--bord);vertical-align:top}
-tr:last-child td{border-bottom:0}
-td.item{font-weight:700;white-space:nowrap}
-td.st{white-space:nowrap}
-.pill{display:inline-block;font-size:12px;font-weight:700;border-radius:999px;padding:3px 14px}
-.pill.ok{background:var(--mintbg);border:1px solid var(--mintbd);color:var(--mintdk)}
-.pill.doing{background:var(--amberbg);border:1px solid var(--amberbd);color:var(--amber)}
-.pill.hold{background:#EEF0F4;border:1px solid #D5DAE3;color:#5C6470}
-
-/* ---- doc cards ---- */
-.dcard{display:grid;grid-template-columns:56px 1fr auto;gap:18px;align-items:center;background:#fff;border:1px solid var(--bord);border-radius:10px;padding:18px 22px;margin-bottom:13px;text-decoration:none;box-shadow:0 2px 12px rgba(20,40,80,.05);transition:transform .15s,border-color .15s}
-a.dcard:hover{transform:translateY(-2px);border-color:var(--mintbd)}
-.dcard .ic{width:56px;height:56px;border-radius:10px;display:grid;place-items:center;font-size:26px;background:var(--mintbg);border:1px solid var(--mintbd)}
-.dcard b{font-size:16.5px;color:var(--blue)}
-.dcard p{margin:2px 0 0;font-size:13.5px;color:var(--mute)}
-.dcard .go{font-size:13.5px;font-weight:700;color:var(--blue);white-space:nowrap}
-
-.note{font-size:13px;color:var(--mute);background:#fff;border:1px solid var(--bord);border-radius:8px;padding:14px 18px;margin-top:34px}
-footer{color:var(--mute);font-size:12.5px;padding:26px 0 32px}
-footer .wrap{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;align-items:center}
-footer img{height:20px;vertical-align:middle;margin-right:8px}
-
-@media(max-width:760px){
-  .feature{grid-template-columns:1fr}
-  .feature .shot{min-height:200px}
-  th,td{padding:10px 12px}
-  td.item{white-space:normal}
-  .chips{gap:8px}.chip{padding:7px 14px;font-size:12.5px}
-}
+body{margin:0;min-height:100vh;display:flex;align-items:center;justify-content:center;
+background:#F7F8FA;color:#221815;font:400 15px/1.9 "Noto Sans JP",system-ui,sans-serif}
+.box{max-width:560px;padding:40px 32px;background:#fff;border:1px solid #E3E6EC;border-top:4px solid #1E3C90;text-align:center}
+h1{margin:0 0 12px;font-size:17px}
+a{color:#1E3C90;word-break:break-all}
+p{margin:0 0 8px}
+.small{margin-top:16px;font-size:12px;color:#6B7280}
 </style>
 </head>
 <body>
-<div class="gradbar"></div>
-
-<div class="tbar">
-  <div class="wrap">
-    <img src="brand/itline-logo.jpg" alt="株式会社ITLINE">
-    <span>ITでビジネスをもっと前へ。｜AI×クリエイター ハイブランドWebソリューション</span>
-  </div>
+<div class="box">
+<h1>ご確認用資料は移転しました</h1>
+<p>自動で新しいURLへ移動します。切り替わらない場合は下のリンクを開いてください。</p>
+<p><a href="https://itline-pf.com/share-t2zjqg4qibc0m8/">https://itline-pf.com/share-t2zjqg4qibc0m8/</a></p>
+<p class="small">株式会社ITLINE</p>
 </div>
-
-<div class="hero">
-  <div class="wrap">
-    <p class="kicker">DOCUMENT INDEX</p>
-    <h1>公共AIナレッジ研究会<br>公式Webサイト ご確認用資料一覧</h1>
-    <p class="sub">株式会社ITLINE｜2026年8月10日現在</p>
-    <div class="chips">
-      <span class="chip">デザイン：<b>確定（パターン6採用）</b></span>
-      <span class="chip">現在：<b>公開直前プレビュー版</b></span>
-      <span class="chip">本公開：<b>8月末 目標</b></span>
-      <span class="chip">フォーム通知：<b>info@trustedfor.ai</b></span>
-    </div>
-  </div>
-</div>
-
-<main>
-  <div class="wrap">
-
-    <div class="shead"><h2>公開直前プレビュー版</h2><span class="en">PREVIEW</span><span class="cnt">WordPress版・全13ページ＋お知らせ6件</span></div>
-
-    <a class="feature" href="https://www.trustedfor.ai/preview/" target="_blank" rel="noopener">
-      <span class="shot"><img src="thumbs/preview.jpg?v=20260810" alt="公開直前プレビュー版のスクリーンショット"><span class="fbadge">現在ご確認いただく版</span></span>
-      <span class="body">
-        <h3><small>PRE-LAUNCH PREVIEW</small>公開直前プレビュー版</h3>
-        <span class="url">https://www.trustedfor.ai/preview/</span>
-        <p>確定したデザイン（パターン6）を実際のWordPressに実装した、本公開と同じ構成の確認環境です。お問い合わせ・入会申込フォームは実際に送信でき、お知らせは管理画面から更新できます。ご確認のうえ、問題がなければこの内容でトップページへ切り替えます（本公開）。</p>
-        <span class="go">プレビュー版を開く →</span>
-      </span>
-    </a>
-
-    <div class="cguide">
-      <span class="ic">💬</span>
-      <span>
-        <b>修正箇所・追加のご要望は、右のコメント欄からお寄せください</b>
-        <p>「どのページの・どの部分を・どうしたいか」をお書きいただけると、そのまま反映作業に入れます。他の委員の皆様のコメントもご覧いただけます。お名前とご案内済みの合言葉が必要です。<br>（スマートフォンなど画面が狭い場合は、右下のボタンから開きます）</p>
-      </span>
-    </div>
-
-    <div class="gap"></div>
-    <div class="shead"><h2>ご確認事項の進捗</h2><span class="en">STATUS</span><span class="cnt">2026年8月10日現在</span></div>
-
-    <div class="status">
-      <div class="shd"><b>デザイン確定後、WordPress実装とプレビュー環境の公開まで完了しました。</b>以下の前提で本公開の準備を進めております。</div>
-      <div class="tscroll">
-      <table>
-        <thead><tr><th style="width:26%">確認事項</th><th>ご回答・現在の前提</th><th style="width:12%">状況</th></tr></thead>
-        <tbody>
-          <tr><td class="item">デザイン</td><td>パターン6（採用版）で確定。検討の経緯は<a href="archive.html" style="color:var(--blue);font-weight:700">デザイン検討アーカイブ</a>に移動しました</td><td class="st"><span class="pill ok">確定</span></td></tr>
-          <tr><td class="item">WordPress実装</td><td>全13ページ＋お知らせ6件＋フォーム2種を実装し、プレビュー環境を公開中</td><td class="st"><span class="pill ok">完了</span></td></tr>
-          <tr><td class="item">公開場所</td><td>トップ（trustedfor.ai）を本サイトに置き換え。現サイトはバックアップのうえ差し替え</td><td class="st"><span class="pill ok">確定</span></td></tr>
-          <tr><td class="item">フォーム送信先</td><td>入会申込・お問い合わせとも info@trustedfor.ai へ自動送信＋送信者へ自動返信</td><td class="st"><span class="pill doing">テスト中</span></td></tr>
-          <tr><td class="item">お知らせの更新</td><td>管理画面から事務局にて更新可能。操作手順は下記マニュアルをご覧ください</td><td class="st"><span class="pill ok">完了</span></td></tr>
-          <tr><td class="item">本公開の日程</td><td>8月末目標。公開日を運営委員の皆様にお決めいただく段階です</td><td class="st"><span class="pill doing">ご相談中</span></td></tr>
-          <tr><td class="item">仕様書の掲載・表現</td><td>表現は「公開予定です。」に統一。研究会内のご確認は8月中の完了見込み</td><td class="st"><span class="pill doing">確認中</span></td></tr>
-          <tr><td class="item">会員に関する掲載</td><td>掲載予定として制作を進行。会員名・所属・写真・コメントは個別にご確認中</td><td class="st"><span class="pill doing">確認中</span></td></tr>
-          <tr><td class="item">事務局情報の公開</td><td>メールは info@trustedfor.ai に統一。担当者名は福田様・大塚様・松崎様</td><td class="st"><span class="pill ok">確定</span></td></tr>
-          <tr><td class="item">プライバシーポリシー</td><td>法人格がないため当面見送り（将来の法人化等の際に再検討）</td><td class="st"><span class="pill hold">保留</span></td></tr>
-          <tr><td class="item">会員専用ページ・English</td><td>将来対応の想定（当面は未掲載のまま進行）</td><td class="st"><span class="pill hold">将来対応</span></td></tr>
-          <tr><td class="item">バックエンドの整備</td><td>将来的なRAG設計を含むサイト内部の仕組みは、引き続きITLINEにて設計・構築を進めます</td><td class="st"><span class="pill doing">進行中</span></td></tr>
-        </tbody>
-      </table>
-      </div>
-    </div>
-
-    <div class="gap"></div>
-    <div class="shead"><h2>ご提案・進行資料</h2><span class="en">DOCUMENTS</span></div>
-
-    <a class="dcard" href="docs/お知らせ更新マニュアル.pdf" target="_blank" rel="noopener">
-      <span class="ic">📘</span>
-      <span>
-        <b>お知らせ更新マニュアル（PDF）</b>
-        <p>プレビュー版の管理画面からお知らせを追加・修正する手順書です（A4・3ページ）。</p>
-      </span>
-      <span class="go">開く →</span>
-    </a>
-
-    <a class="dcard" href="公共AIナレッジ研究会_サイトマップ.html">
-      <span class="ic">🗺️</span>
-      <span>
-        <b>サイトマップ（サイト構成図）</b>
-        <p>正式公開に向けた全体構成のご提案です。</p>
-      </span>
-      <span class="go">開く →</span>
-    </a>
-
-    <a class="dcard" href="公共AIナレッジ研究会_公開企画表.html">
-      <span class="ic">📋</span>
-      <span>
-        <b>公開企画表</b>
-        <p>制作方針と進行計画をまとめた資料です。</p>
-      </span>
-      <span class="go">開く →</span>
-    </a>
-
-    <a class="dcard" href="archive.html">
-      <span class="ic">🗃️</span>
-      <span>
-        <b>デザイン検討アーカイブ（パターン1〜7）</b>
-        <p>確定までに比較検討した各デザイン案と、メインビジュアル動画の検討記録です。</p>
-      </span>
-      <span class="go">開く →</span>
-    </a>
-
-    <div class="note">
-      本ページおよび各資料は、検索エンジンへの登録を抑制する設定（noindex）を施した確認用のものです。プレビュー版・本ページともパスワードによるアクセス制限はございませんので、URLのお取り扱いにはご注意ください。
-    </div>
-
-  </div>
-</main>
-
-<footer>
-  <div class="wrap">
-    <span><img src="brand/itline-logo.jpg" alt="">© 株式会社ITLINE</span>
-    <span>お問い合わせ：kodama@itline.co.jp</span>
-  </div>
-</footer>
-
-<script src="comment/comments.js?v=20260812a" data-thread="preview" data-label="公開直前プレビュー版" data-button="修正・追加のご要望" defer></script>
+<script>location.replace("https://itline-pf.com/share-t2zjqg4qibc0m8/");</script>
 </body>
 </html>

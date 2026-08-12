@@ -1,211 +1,29 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ja">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex, nofollow">
-<title>デザイン検討アーカイブ（パターン1〜7）｜公共AIナレッジ研究会 公式Webサイト（株式会社ITLINE）</title>
+<meta http-equiv="refresh" content="0; url=https://itline-pf.com/share-t2zjqg4qibc0m8/archive.html">
+<link rel="canonical" href="https://itline-pf.com/share-t2zjqg4qibc0m8/archive.html">
+<title>移転しました｜公共AIナレッジ研究会 ご確認用資料</title>
 <style>
-:root{
-  --blue:#003399; --blue-d:#00246E; --blue-dd:#001A52; --ink:#1F2633; --mute:#5B6577; --bord:#E3E7EE;
-  --mint:#6BE2DE; --mintbg:#EFFBF9; --mintbd:#BCEDE6; --mintdk:#1F8F84;
-  --amber:#96660A; --amberbg:#FFF6E5; --amberbd:#F2D9A6;
-  --card:#F7F9FB;
-  --grad:linear-gradient(90deg,#6BE2DE 0%,#6AECD4 55%,#79EDC0 100%);
-  --font:"Yu Gothic UI","YuGothic UI","Yu Gothic","Meiryo",system-ui,sans-serif;
-}
-*{box-sizing:border-box;margin:0;padding:0}
-body{font-family:var(--font);color:var(--ink);background:#F4F7FA;font-size:16px;line-height:1.85}
-img{max-width:100%}
-a{color:inherit}
-.wrap{max-width:1080px;margin:0 auto;padding:0 24px}
-.gradbar{height:6px;background:var(--grad)}
-
-.tbar{background:#fff;border-bottom:1px solid var(--bord)}
-.tbar .wrap{display:flex;align-items:center;justify-content:space-between;gap:14px;padding-top:12px;padding-bottom:12px}
-.tbar img{height:34px;display:block}
-.tbar span{font-size:12px;color:var(--mute)}
-
-.hero{color:#fff;background:linear-gradient(128deg,var(--blue) 0%,var(--blue-d) 55%,var(--blue-dd) 100%);position:relative;overflow:hidden}
-.hero::after{content:"";position:absolute;right:-140px;top:-140px;width:420px;height:420px;border-radius:50%;background:radial-gradient(circle,rgba(107,226,222,.18),transparent 70%)}
-.hero .wrap{position:relative;z-index:1;padding-top:44px;padding-bottom:44px}
-.kicker{font-size:12.5px;letter-spacing:.34em;font-weight:700;color:#9FD9FF;margin-bottom:16px}
-.hero h1{font-size:clamp(24px,3.8vw,36px);font-weight:700;line-height:1.5;letter-spacing:.01em}
-.hero .sub{margin-top:14px;font-size:14.5px;color:#D6E2F7;max-width:46em}
-.back{display:inline-flex;align-items:center;gap:8px;margin-top:22px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.3);border-radius:999px;padding:9px 22px;font-size:13.5px;font-weight:700;color:#fff;text-decoration:none}
-.back:hover{background:rgba(255,255,255,.2)}
-
-main{padding:46px 0 20px}
-.shead{display:flex;align-items:baseline;gap:14px;margin:0 0 20px}
-.shead h2{font-size:21px;font-weight:700;color:var(--ink)}
-.shead .en{font-size:11.5px;letter-spacing:.28em;font-weight:700;color:var(--blue)}
-.shead .cnt{margin-left:auto;font-size:12.5px;color:var(--mute)}
-.gap{height:44px}
-
-/* 採用の流れ */
-.flow{background:#fff;border:1px solid var(--bord);border-radius:12px;padding:22px 26px;box-shadow:0 3px 16px rgba(20,40,80,.06);margin-bottom:34px}
-.flow h2{font-size:16px;margin-bottom:14px;color:var(--blue)}
-.flow ol{list-style:none;display:flex;flex-wrap:wrap;gap:0;align-items:stretch}
-.flow li{position:relative;flex:1 1 150px;min-width:150px;padding:12px 24px 12px 14px;font-size:13px;line-height:1.7}
-.flow li b{display:block;font-size:13.5px;color:var(--blue)}
-.flow li em{display:block;font-style:normal;font-size:12.5px;margin-top:2px}
-.flow li small{display:block;color:var(--mute);font-size:11.5px;line-height:1.5;margin-top:2px}
-.flow li::after{content:"→";position:absolute;right:4px;top:50%;transform:translateY(-50%);color:#B9C2D2;font-weight:700}
-.flow li:last-child::after{content:""}
-.flow li.now b{color:#C22A22}
-
-/* cards */
-.grid{display:grid;grid-template-columns:1fr 1fr;gap:22px}
-.pcard{display:flex;flex-direction:column;background:#fff;border:1px solid var(--bord);border-radius:12px;overflow:hidden;text-decoration:none;box-shadow:0 3px 16px rgba(20,40,80,.06);transition:transform .15s,box-shadow .15s}
-a.pcard:hover{transform:translateY(-3px);box-shadow:0 10px 26px rgba(20,40,80,.11)}
-.pcard .shot{position:relative;aspect-ratio:16/10;background:var(--card);border-bottom:1px solid var(--bord)}
-.pcard .shot img{width:100%;height:100%;object-fit:cover;object-position:top;display:block}
-.badge{position:absolute;left:14px;top:14px;background:var(--blue);color:#fff;font-size:12px;font-weight:700;border-radius:6px;padding:4px 12px;letter-spacing:.06em}
-.pcard .body{padding:18px 22px 20px}
-.pcard h3{font-size:17.5px;color:var(--blue);line-height:1.55}
-.pcard h3 small{font-size:11.5px;letter-spacing:.18em;color:var(--mintdk);display:block;margin-bottom:4px}
-.pcard p{font-size:13.5px;color:var(--mute);margin-top:8px}
-.pcard .go{display:block;margin-top:12px;font-size:13.5px;font-weight:700;color:var(--blue)}
-
-.dcard{display:grid;grid-template-columns:56px 1fr auto;gap:18px;align-items:center;background:#fff;border:1px solid var(--bord);border-radius:10px;padding:18px 22px;margin-bottom:13px;text-decoration:none;box-shadow:0 2px 12px rgba(20,40,80,.05);transition:transform .15s,border-color .15s}
-a.dcard:hover{transform:translateY(-2px);border-color:var(--mintbd)}
-.dcard .ic{width:56px;height:56px;border-radius:10px;display:grid;place-items:center;font-size:26px;background:var(--mintbg);border:1px solid var(--mintbd)}
-.dcard b{font-size:16.5px;color:var(--blue)}
-.dcard p{margin:2px 0 0;font-size:13.5px;color:var(--mute)}
-.dcard .go{font-size:13.5px;font-weight:700;color:var(--blue);white-space:nowrap}
-
-.note{font-size:13px;color:var(--mute);background:#fff;border:1px solid var(--bord);border-radius:8px;padding:14px 18px;margin-top:34px}
-footer{color:var(--mute);font-size:12.5px;padding:26px 0 32px}
-footer .wrap{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;align-items:center}
-footer img{height:20px;vertical-align:middle;margin-right:8px}
-
-@media(max-width:760px){
-  .grid{grid-template-columns:1fr}
-  .flow ol{flex-direction:column}
-  .flow li::after{content:"↓";right:auto;left:2px;top:auto;bottom:-14px;transform:none}
-  .flow li:last-child::after{content:""}
-}
+body{margin:0;min-height:100vh;display:flex;align-items:center;justify-content:center;
+background:#F7F8FA;color:#221815;font:400 15px/1.9 "Noto Sans JP",system-ui,sans-serif}
+.box{max-width:560px;padding:40px 32px;background:#fff;border:1px solid #E3E6EC;border-top:4px solid #1E3C90;text-align:center}
+h1{margin:0 0 12px;font-size:17px}
+a{color:#1E3C90;word-break:break-all}
+p{margin:0 0 8px}
+.small{margin-top:16px;font-size:12px;color:#6B7280}
 </style>
 </head>
 <body>
-<div class="gradbar"></div>
-
-<div class="tbar">
-  <div class="wrap">
-    <img src="brand/itline-logo.jpg" alt="株式会社ITLINE">
-    <span>ITでビジネスをもっと前へ。｜AI×クリエイター ハイブランドWebソリューション</span>
-  </div>
+<div class="box">
+<h1>ご確認用資料は移転しました</h1>
+<p>自動で新しいURLへ移動します。切り替わらない場合は下のリンクを開いてください。</p>
+<p><a href="https://itline-pf.com/share-t2zjqg4qibc0m8/archive.html">https://itline-pf.com/share-t2zjqg4qibc0m8/archive.html</a></p>
+<p class="small">株式会社ITLINE</p>
 </div>
-
-<div class="hero">
-  <div class="wrap">
-    <p class="kicker">DESIGN ARCHIVE</p>
-    <h1>デザイン検討アーカイブ<br>パターン1〜7</h1>
-    <p class="sub">デザインは<b>パターン6（採用版）</b>で確定し、WordPress化した公開直前プレビュー版へ移行しました。本ページは、確定までに比較検討した各案の記録です。</p>
-    <a class="back" href="index.html">← 資料一覧（公開直前プレビュー版）へ戻る</a>
-  </div>
-</div>
-
-<main>
-  <div class="wrap">
-
-    <div class="flow">
-      <h2>確定までの流れ</h2>
-      <ol>
-        <li><b>パターン1</b><em>原案再現版</em><small>ご共有AIモックの再現</small></li>
-        <li><b>パターン2</b><em>ブラッシュアップ版</em><small>ディレクション採用</small></li>
-        <li><b>パターン3</b><em>Codex再構成版</em><small>骨格・フォント・MV採用</small></li>
-        <li><b>パターン4</b><em>統合案</em><small>8月6日ご採用</small></li>
-        <li><b>パターン6</b><em>採用版</em><small>ご要望3点を反映</small></li>
-        <li class="now"><b>プレビュー版</b><em>WordPress化</em><small>公開直前・現在ここ</small></li>
-      </ol>
-    </div>
-
-    <div class="shead"><h2>確定案とそのベース</h2><span class="en">FINAL &amp; BASE</span></div>
-
-    <div class="grid">
-      <a class="pcard" href="pattern6/index.html" target="_blank" rel="noopener">
-        <span class="shot"><img src="thumbs/pattern6.jpg?v=20260807-2" alt="パターン6 採用版のスクリーンショット"><span class="badge" style="background:#C22A22">採用版（確定）</span></span>
-        <span class="body">
-          <h3><small>パターン6 ─ ADOPTED</small>採用版（パターン4＋8月6日ご要望反映・全14ページ）</h3>
-          <p>ご採用のパターン4をベースに、赤のポイント増量・ELSIセンターマークのファビコン・「Trusted for AI」強調の3点を反映した確定版。この内容がそのままWordPress化され、プレビュー版になっています。</p>
-          <span class="go">静的版を見る →</span>
-        </span>
-      </a>
-
-      <a class="pcard" href="pattern4/index.html" target="_blank" rel="noopener">
-        <span class="shot"><img src="thumbs/pattern4.jpg?v=20260806-3" alt="パターン4 Claude Code統合版のスクリーンショット"><span class="badge">ベース（8/6ご採用）</span></span>
-        <span class="body">
-          <h3><small>パターン4 ─ CLAUDE CODE INTEGRATED</small>Claude Code版 統合案（全14ページ）</h3>
-          <p>パターン2のディレクションとパターン3の骨格を統合し、全下層ページ・記事詳細・メガメニューまで実装した案。運営委員の皆様よりベース案としてご採用いただきました。</p>
-          <span class="go">見る →</span>
-        </span>
-      </a>
-    </div>
-
-    <div class="gap"></div>
-    <div class="shead"><h2>比較検討した各案</h2><span class="en">CANDIDATES</span></div>
-
-    <a class="dcard" href="https://202606071001055476447.onamaeweb.jp/kokyoai-demo/index.html" target="_blank" rel="noopener">
-      <span class="ic">🖥️</span>
-      <span>
-        <b>パターン1｜原案再現版（ご共有モック）</b>
-        <p>ご共有いただいたAI生成モックを原則そのまま掲載（全11ページ）。※閲覧にはID・パスワードが必要です</p>
-      </span>
-      <span class="go">見る →</span>
-    </a>
-
-    <a class="dcard" href="pattern2/index.html" target="_blank" rel="noopener">
-      <span class="ic">🤖</span>
-      <span>
-        <b>パターン2｜Claude Code ブラッシュアップ版</b>
-        <p>デザインディレクションのベースとしてご選定いただいた案（全12ページ）。</p>
-      </span>
-      <span class="go">見る →</span>
-    </a>
-
-    <a class="dcard" href="pattern3/index.html" target="_blank" rel="noopener">
-      <span class="ic">⚙️</span>
-      <span>
-        <b>パターン3｜Codex 再構成版</b>
-        <p>レイアウト（スケルトン）・フォント・メインビジュアルのベースとしてご選定いただいた案（全12ページ）。</p>
-      </span>
-      <span class="go">見る →</span>
-    </a>
-
-    <a class="dcard" href="pattern5/index.html" target="_blank" rel="noopener">
-      <span class="ic">📄</span>
-      <span>
-        <b>パターン5｜Codex 統合版</b>
-        <p>同一のご要望を反映したCodex側の統合比較案（全15ページ）。比較の結果、パターン4のご採用となりました。</p>
-      </span>
-      <span class="go">見る →</span>
-    </a>
-
-    <a class="dcard" href="pattern7/mv/index.html" target="_blank" rel="noopener">
-      <span class="ic">🎬</span>
-      <span>
-        <b>パターン7｜メインビジュアル動画の検討（A/B/C＋躍動3案）</b>
-        <p>採用版のヒーロー画像を基準に、Seedance 2.5で生成した背景動画の比較資料。17秒・無音・シームレスループ。採用可否は今後のご相談事項です。</p>
-      </span>
-      <span class="go">比較を見る →</span>
-    </a>
-
-    <div class="note">
-      本ページおよび各デザイン案は、検索エンジンへの登録を抑制する設定（noindex）を施した確認用のものです。パターン1はID・パスワードで保護しておりますが、その他のページにはアクセス制限はございませんので、URLのお取り扱いにはご注意ください。<br>
-      各案へのご意見は、それぞれのページ右下の「この資料にコメント」からお寄せいただけます。
-    </div>
-
-  </div>
-</main>
-
-<footer>
-  <div class="wrap">
-    <span><img src="brand/itline-logo.jpg" alt="">© 株式会社ITLINE</span>
-    <span>お問い合わせ：kodama@itline.co.jp</span>
-  </div>
-</footer>
-
-<script src="comment/comments.js?v=20260812a" data-thread="archive" data-label="デザイン検討アーカイブ" defer></script>
+<script>location.replace("https://itline-pf.com/share-t2zjqg4qibc0m8/archive.html");</script>
 </body>
 </html>

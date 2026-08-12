@@ -1,8 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 260" role="img" aria-label="公共AIナレッジ研究会">
-  <rect width="240" height="260" rx="18" fill="#FFFFFF"/>
-  <rect x="20" y="20" width="60" height="200" fill="#111111"/>
-  <rect x="94" y="20" width="126" height="38" fill="#111111"/>
-  <rect x="94" y="86" width="126" height="40" fill="#111111"/>
-  <path d="M94 150 L182 202 L182 220 L94 220 Z" fill="#111111"/>
-  <rect x="20" y="232" width="200" height="10" fill="#E3372E"/>
-</svg>
